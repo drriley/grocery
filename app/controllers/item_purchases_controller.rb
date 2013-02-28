@@ -6,9 +6,7 @@ class Item_purchasesController < ApplicationController
 
   def show
      # get data on that particular animal
-      @item_purchase = Item_purchase.find(params[:id])
-     
-      
+      @item_purchase = Item_purchase.find(params[:id])    
   end
 
   def new
