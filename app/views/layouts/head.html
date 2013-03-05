@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Green Bean - <%= @item[:title] %></title>
+    <link rel="stylesheet" type="text/css" href="../assets/style/stylesheet.css" media="screen">
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
+  </head>
+  <body>
+	<div class="top-navbar">
+		<a class="navcell-1">
+			<%= @item[:navcell1] %>
+		</a>
+		<h1 class="page-title">
+			<%= @item[:pagetitle] %>
+		</h1>
+		<a class="navcell-2" href="#additem">
+			<%= @item[:navcell2] %>
+		</a>
+	</div>

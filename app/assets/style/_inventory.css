@@ -1,0 +1,19 @@
+.inventory-locations-list {
+  padding: 1.75em; }
+  .inventory-locations-list li {
+    border: 1px solid black;
+    padding: 1.75em; }
+
+.inventory-item-list {
+  width: 100%;
+  font-size: 0.9em; }
+  .inventory-item-list thead {
+    background-color: black;
+    color: white;
+    text-align: left; }
+    .inventory-item-list thead th {
+      padding: 0.5em; }
+  .inventory-item-list tbody tr {
+    border-bottom: 1px solid black; }
+  .inventory-item-list td {
+    padding: 0.5em 0.75em; }
