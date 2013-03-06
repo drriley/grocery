@@ -5,4 +5,8 @@ class PurchaseTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  
+  should validate_presence_of(:date)
+  
+  should allow_value("01-01-2013").for(:date)
 end
