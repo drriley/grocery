@@ -66,6 +66,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.6.1)
     polyglot (0.3.3)
+    populator (1.0.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -133,6 +134,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   mocha
+  populator
   rails (= 3.2.8)
   sass-rails (~> 3.2.3)
   shoulda
