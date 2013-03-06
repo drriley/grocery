@@ -1,0 +1,58 @@
+/* ---------------------------------------------------------------------------
+ * mixins that should be referenced elsewhere once I figure out how to do that 
+ * ---------------------------------------------------------------------------- */
+/* clearfix */
+/* ---------------------------------------------------------------------------
+ * actual css
+ * ---------------------------------------------------------------------------- */
+* {
+  box-sizing: Border-box; }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.top-navbar {
+  padding: 0.5em;
+  background-color: #e0e0e0; }
+  .top-navbar:before, .top-navbar:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .top-navbar:after {
+    clear: both; }
+  .top-navbar h1, .top-navbar a {
+    float: left;
+    display: block;
+    min-height: 1px; }
+  .top-navbar h1 {
+    width: 60%;
+    font-size: 1em;
+    text-align: center; }
+  .top-navbar a {
+    width: 20%;
+    font-size: 0.75em;
+    padding: 1em 0;
+    text-align: center;
+    background-color: #cccccc;
+    font-color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 0.5em; }
+
+.tab-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+  .tab-nav li {
+    float: left;
+    padding: 1em 0 1em 0;
+    text-align: center;
+    border: 1px solid black; }
+    .tab-nav li:first-child {
+      width: 60%; }
+    .tab-nav li:last-child {
+      width: 40%; }
