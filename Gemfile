@@ -5,8 +5,14 @@ gem 'bundle'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# TODO switch this to postgres and also changed database.yml file
 gem 'sqlite3'
-gem 'populator'
+
+group :development do
+  # these are for populating our database with fake data
+  gem 'populator'
+  gem 'faker'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
