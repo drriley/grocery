@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130225160323) do
 
   create_table "companies", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130225160323) do
   end
 
   create_table "item_purchases", :force => true do |t|
-    t.string   "purchase"
+    t.integer  "purchase_id"
     t.integer  "_id"
     t.integer  "item_store_id"
     t.float    "quantity"
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130225160323) do
   end
 
   create_table "stores", :force => true do |t|
+    t.string   "name"
     t.integer  "company_id"
     t.integer  "store_number"
     t.string   "phone"

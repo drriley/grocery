@@ -12,6 +12,10 @@ group :development do
   # these are for populating our database with fake data
   gem 'populator'
   gem 'faker'
+  # these are to make developing easier
+  gem 'hirb' # pretty console!
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Gems used only for assets and not required
