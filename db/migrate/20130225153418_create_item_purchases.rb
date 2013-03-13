@@ -1,7 +1,7 @@
 class CreateItemPurchases < ActiveRecord::Migration
   def change
     create_table :item_purchases do |t|
-      t.string :purchase
+      t.integer :purchase_id
       t.integer :_id
       t.integer :item_store_id
       t.float :quantity

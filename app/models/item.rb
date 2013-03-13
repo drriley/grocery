@@ -1,9 +1,10 @@
 class Item < ActiveRecord::Base
-  has_many :stores
-  attr_accessible :est_shelf_life, :generic_name, :name
-  
-  scope :alphabetical, order('name')
+	attr_accessible :est_shelf_life, :generic_name, :name
+	
+	# Relationships
+	has_many :stores
+
+	# Scopes
+	scope :alphabetical, order('name')
  
-  
-  
 end
