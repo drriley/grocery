@@ -11,7 +11,7 @@ namespace :db do
     require 'populator'
 
     # clear any old data in the db
-    [Transaction, Store, Item, TransactionItem].each(&:delete_all)
+    [ItemStore, Store, Item, ItemPurchase].each(&:delete_all)
 
     # add some stores
     stores = ['Giant Eagle Squirrel Hill', 'Giant Eagle Market District', 'Giant Eagle East Liberty', 'Giant Eagle Waterfront']
@@ -49,7 +49,7 @@ namespace :db do
 
     # create some transactions with random times, stores, and customers
     100.times do |i|
-        item_store = Transaction.new
+        item_store = ItemStore.new
         item_store.time = Time.at(rand * Time.now.to_i)
         item_store.store_id = Store.all.sample.id
         item_store.customer_id = rand(0..234678901)
@@ -58,9 +58,10 @@ namespace :db do
 
     # create a bunch of transactionItems
     100.times do |i|
-        item_purchase = TransactionItem.new
+        item_purchase = ItemPurchase.new
         item_purchase.item_id = Item.all.sample.id
-        item_purchase.transaction_id = Transaction.all.sample.id
+        item_purchase.transaction_id = ItemStore.all.sample.id
+        item_purchase.price_per_unit = rand(1..7)
         item_purchase.quantity = rand(1..30)
         item_purchase.save!
     end
