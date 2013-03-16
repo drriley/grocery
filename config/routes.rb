@@ -1,4 +1,12 @@
 Grocery::Application.routes.draw do
+
+  # set rules for custom rountes/controller actions (they're not CRUD, so rails won't handle them on its own)
+  match 'items/fridge' => 'items#fridge'
+  match 'items/freezer' => 'items#freezer'
+  match 'items/pantry' => 'items#pantry'
+
+  resources :items
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

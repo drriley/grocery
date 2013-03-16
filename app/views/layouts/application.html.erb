@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Green Bean</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<%= render :partial => 'partials/head' %>
 
-<%= yield %>
+	<body>
+		<div class="top-navbar">
+			<a class="navcell-1">
+				<%= '@page[:navcell1]' %>
+			</a>
+			<h1 class="page-title">
+				<%= '@page[:pagetitle]' %>
+			</h1>
+			<a class="navcell-2" href="#additem">
+				<%= '@page[:navcell2]' %>
+			</a>
+		</div>
 
-</body>
+		<%= yield %>
+
+
+		<%= render :partial => 'partials/bottom' %>
+	
+	</body>
+
 </html>

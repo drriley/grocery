@@ -4,8 +4,10 @@ class ItemsController < ApplicationController
 	# Sort of. We aren't really displaying all of the items in the inventory. Instead, we're displaying links to subsections of the person's inventory, such as kitchen areas and a 'running low' section
 	def index
 		@item_sections = Item::STORAGE_LOCATIONS_LIST
-		# also add in our non-location filter, the running low one
-		@item_sections << ['Running Low', 'running_low']
+		# also add in our non-location filter, the running low one, if we haven't added it yet
+		if (@item_sections.length == Item::STORAGE_LOCATIONS_LIST.length && @item_sections.length < 4) 
+			@item_sections << ['Running Low', 'running_low']
+		end
 	end
   
 

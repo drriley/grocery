@@ -77,7 +77,7 @@ namespace :db do
     items.each do |i|
         item = Item.new
         item.generic_name = i
-        item.name = Faker::Company.name + i
+        item.name = Faker::Company.name + ' ' + i
         # because shelf life is totally random...
         item.est_shelf_life = rand(7..300)
         # randomly select a storage area. why not put canned peas in the fridge?
