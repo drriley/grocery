@@ -87,6 +87,7 @@ namespace :db do
         item.save!
     end
 
+
     # create item_stores (basically item stock records)
     # item_store attrs: :item_id, :store_id
     10.times {
@@ -95,6 +96,7 @@ namespace :db do
         item_store.store_id = Store.all.sample.id
         item_store.save!
     }
+
 
     # create some purchases
     # purchases' attrs: :customer_id, :date
@@ -114,7 +116,8 @@ namespace :db do
         item_purchase.purchase_id = Purchase.all.sample.id
         item_purchase.quantity = rand(1..19)
         item_purchase.unit = ['lbs', 'bags', 'boxes', 'oz'].sample
-        item_purchase.status = ['just bought it', 'running low', 'buy more!'].sample
+        # statuses should really be constants in the ItemPurchase model (TODO)
+        item_purchase.status = ['just bought it', 'running low', 'buy more'].sample
         item_purchase.save!
     }
 
