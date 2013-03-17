@@ -5,8 +5,9 @@ gem 'bundle'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# TODO switch this to postgres and also changed database.yml file
-gem 'sqlite3'
+# postgres and heroku
+gem 'pg'
+gem 'heroku'
 
 group :development do
   # these are for populating our database with fake data
