@@ -7,7 +7,7 @@ gem 'bundle'
 
 # postgres and heroku
 gem 'pg'
-gem 'heroku'
+# using heroku toolbelt instead of gem 'heroku'
 
 group :development do
   # these are for populating our database with fake data
