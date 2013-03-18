@@ -13,9 +13,6 @@ namespace :db do
     require 'faker'
 
     # clear any old data in the db
-<<<<<<< HEAD
-    [ItemStore, Store, Item, ItemPurchase].each(&:delete_all)
-=======
     [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase].each(&:delete_all)
 
     # create a few companies. company's only attribute is name.
@@ -28,7 +25,6 @@ namespace :db do
         # save it to the database
         company.save!
     end
->>>>>>> f70511a490338570dd7a022f843156f287778082
 
     # add some stores. 
     # stores' attributes: :name, :company_id, :phone, :store_number, :street, :zip
@@ -76,43 +72,32 @@ namespace :db do
     end
 
     # add some items
-    # items' attrs: :est_shelf_life, :generic_name, :name
+    # items' attrs: :est_shelf_life, :generic_name, :name, :storage_location
     items = ['apples', 'steak', 'pita chips', 'potatoes', 'whole wheat crackers', 'peanut butter', 'canned peas', 'frozen mixed vegetables', 'yogurt', 'wheat flakes cereal', 'clementines', 'canned tuna', 'salmon', 'clementines', 'pineapple', 'popcorn', 'potato chips', 'red potatoes', 'macaroni and cheese', 'linguine pasta', 'rigatoni pasta', 'marinara sauce', 'white rice']
     items.each do |i|
         item = Item.new
         item.generic_name = i
-        item.name = Faker::Company.name + i
+        item.name = Faker::Company.name + ' ' + i
         # because shelf life is totally random...
         item.est_shelf_life = rand(7..300)
+        # randomly select a storage area. why not put canned peas in the fridge?
+        # sampling the storage locations list will return a two item array with the human-readable
+        # and machine friendly versions of the storage location's name. we want the second item in the array (index = 1)
+        item.storage_location = Item::STORAGE_LOCATIONS_LIST.sample[1]
         item.save!
     end
 
-<<<<<<< HEAD
 
-    # create some transactions with random times, stores, and customers
-    100.times do |i|
-        item_store = ItemStore.new
-        item_store.time = Time.at(rand * Time.now.to_i)
-=======
     # create item_stores (basically item stock records)
     # item_store attrs: :item_id, :store_id
     10.times {
         item_store = ItemStore.new
         item_store.item_id = Item.all.sample.id
->>>>>>> f70511a490338570dd7a022f843156f287778082
         item_store.store_id = Store.all.sample.id
         item_store.save!
     }
 
-<<<<<<< HEAD
-    # create a bunch of transactionItems
-    100.times do |i|
-        item_purchase = ItemPurchase.new
-        item_purchase.item_id = Item.all.sample.id
-        item_purchase.transaction_id = ItemStore.all.sample.id
-        item_purchase.price_per_unit = rand(1..7)
-        item_purchase.quantity = rand(1..30)
-=======
+
     # create some purchases
     # purchases' attrs: :customer_id, :date
     50.times {
@@ -131,8 +116,8 @@ namespace :db do
         item_purchase.purchase_id = Purchase.all.sample.id
         item_purchase.quantity = rand(1..19)
         item_purchase.unit = ['lbs', 'bags', 'boxes', 'oz'].sample
-        item_purchase.status = ['just bought it', 'running low', 'buy more!'].sample
->>>>>>> f70511a490338570dd7a022f843156f287778082
+        # statuses should really be constants in the ItemPurchase model (TODO)
+        item_purchase.status = ['just bought it', 'running low', 'buy more'].sample
         item_purchase.save!
     }
 

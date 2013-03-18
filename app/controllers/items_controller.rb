@@ -1,48 +1,33 @@
 class ItemsController < ApplicationController
 
-  def index
-    @items = Item.all
-  end
+	# On the index view for items, we want to display all of the items in the current user's inventory.
+	# Sort of. We aren't really displaying all of the items in the inventory. Instead, we're displaying links to subsections of the person's inventory, such as kitchen areas and a 'running low' section
+	def index
+		@item_sections = Item::STORAGE_LOCATIONS_LIST
+		# also add in our non-location filter, the running low one, if we haven't added it yet
+		if (@item_sections.length == Item::STORAGE_LOCATIONS_LIST.length && @item_sections.length < 4) 
+			@item_sections << ['Running Low', 'running_low']
+		end
+	end
+  
 
-  def show
-     # get data on that particular animal
-      @item = Item.find(params[:id])
-     
-      
-  end
+  	def fridge
+  		@items = Item.stored_in('fridge').all
+  	end
 
-  def new
-    @item = Item.new
-  end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
+  	def freezer
+  		@items = Item.stored_in('freezer').all
+  	end
 
-  def create
-    @item = Item.new(params[:item])
-    if @item.save
-      flash[:notice] = "Successfully created Item."
-      redirect_to @item
-    else
-      render :action => 'new'
-    end
-  end
 
-  def update
-    @item = Item.find(params[:id])
-    if @item.update_attributes(params[:item])
-      flash[:notice] = "Successfully updated item."
-      redirect_to @item
-    else
-      render :action => 'edit'
-    end
-  end
+  	def pantry
+  		@items = Item.stored_in('pantry').all
+  	end
 
-  def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    flash[:notice] = "Successfully destroyed animal."
-    redirect_to items_url
-  end
+
+  	def running_low
+  		@items = Item.running_low.all
+  	end
+
 end
