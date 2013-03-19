@@ -1,10 +1,7 @@
     <div class="tab-nav">
       <ul>
-      <% nav = ['at home', 'shopping list'] 
-         nav.each do |nav| 
-      %>
-        <li><a href="#"><%= nav %></a></li>
-      <% end %>
+        <li><%= link_to "At Home", items_path %></li>
+        <li><%= link_to "Shopping List", '#' %></li>
       </ul>
     </div>
 

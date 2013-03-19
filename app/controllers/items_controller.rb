@@ -1,33 +1,34 @@
 class ItemsController < ApplicationController
 
-	# On the index view for items, we want to display all of the items in the current user's inventory.
-	# Sort of. We aren't really displaying all of the items in the inventory. Instead, we're displaying links to subsections of the person's inventory, such as kitchen areas and a 'running low' section
 	def index
-		@item_sections = Item::STORAGE_LOCATIONS_LIST
-		# also add in our non-location filter, the running low one, if we haven't added it yet
-		if (@item_sections.length == Item::STORAGE_LOCATIONS_LIST.length && @item_sections.length < 4) 
-			@item_sections << ['Running Low', 'running_low']
-		end
-	end
-  
+    # list of possible location options that a user could pass in
+    # based on the constants defined in the model
+    location_slugs_list = Item::STORAGE_LOCATIONS_LIST.map{|location_nameset| location_nameset[1]}
+    users_filter_parameter = params[:f]
+    
+    # if the user passed in a valid location, render the inventory list for that location
+    if (users_filter_parameter.nil? == false)
+      @pagetitle = users_filter_parameter.humanize
+      if (location_slugs_list.include?(users_filter_parameter))
+        @items = Item.stored_in(users_filter_parameter).all
+        render 'items/inventory_list'
 
-  	def fridge
-  		@items = Item.stored_in('fridge').all
-  	end
+      # also allow the user to pass in the 'running low' parameter, to render the running low inventory list
+      elsif (users_filter_parameter == 'running_low')
+        @items = Item.running_low.all
+        render 'items/inventory_list'
+      end
 
+    # otherwise if there's no parameter or the parameter is invalid, just render links to the item sections
+    else
+  		@item_sections = Item::STORAGE_LOCATIONS_LIST
+  		# also add in our non-location filter, the running low one, if we haven't added it yet
+  		if (@item_sections.length == Item::STORAGE_LOCATIONS_LIST.length && @item_sections.length < 4) 
+  			@item_sections << ['Running Low', 'running_low']
+  		end
+      render 'items/inventory_locations_list'
+    end
 
-  	def freezer
-  		@items = Item.stored_in('freezer').all
-  	end
+	end # end index
 
-
-  	def pantry
-  		@items = Item.stored_in('pantry').all
-  	end
-
-
-  	def running_low
-  		@items = Item.running_low.all
-  	end
-
-end
+end # end controller
