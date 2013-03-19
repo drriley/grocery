@@ -17,6 +17,8 @@ class ItemsController < ApplicationController
       elsif (users_filter_parameter == 'running_low')
         @items = Item.running_low.all
         render 'items/inventory_list'
+        # once the custom running_low view is done, the controller should
+        # render that view instead of the inventory_list one
       end
 
     # otherwise if there's no parameter or the parameter is invalid, just render links to the item sections
