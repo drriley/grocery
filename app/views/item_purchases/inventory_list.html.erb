@@ -1,0 +1,24 @@
+<div class="top-navbar">
+	<h1 class="page-title">
+		<%= @pagetitle %>
+	</h1>
+	<a class="navcell-2 right" href="#additem">
+		Add Item
+	</a>
+</div>
+<table class="inventory-item-list">
+	<thead>
+		<tr>
+			<th>Item</th>
+			<th>Bought It</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @items.each do |item| %>
+		<tr>
+			<td><%= item['name'] %></td>
+			<td><%= item['date_purchased'] %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
