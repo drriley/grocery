@@ -14,5 +14,7 @@ class Item < ActiveRecord::Base
 	# scope to get items that are running out. this will probably need to join with the items purchase model
 	# or use a method
 	# scope :running_low
+
+	# scope :for_customer, lambda{|customer_id|} # some sort of joins to only get this customers' item purchases
  
 end

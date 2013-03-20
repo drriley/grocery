@@ -39,6 +39,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'mocha'
   gem 'simplecov'
+  gem 'tconsole'
 end
 
 # To use ActiveModel has_secure_password
