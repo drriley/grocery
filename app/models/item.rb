@@ -11,10 +11,5 @@ class Item < ActiveRecord::Base
 	scope :alphabetical, order('name')
 	# scope to retrieve items based on the passed in location value for their storage location
 	scope :stored_in, lambda{|location| where('storage_location = ?', location)}
-	# scope to get items that are running out. this will probably need to join with the items purchase model
-	# or use a method
-	# scope :running_low
-
-	# scope :for_customer, lambda{|customer_id|} # some sort of joins to only get this customers' item purchases
  
 end

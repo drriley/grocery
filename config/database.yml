@@ -1,6 +1,7 @@
 development:
   adapter: postgresql
   encoding: utf8
+  host: localhost
   database: greenbean_development
   pool: 5
   username: 
@@ -9,6 +10,7 @@ development:
 test: &TEST
   adapter: postgresql
   encoding: utf8
+  host: localhost
   database: greenbean_test
   pool: 5
   username: 
