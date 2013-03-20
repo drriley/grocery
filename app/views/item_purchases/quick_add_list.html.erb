@@ -1,18 +1,15 @@
 <div class="top-navbar">
 	<h1 class="page-title">
-		<%= @pagetitle %>
+		Almost Out
 	</h1>
 	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back"} %>
-	<a class="navcell-2 right" href="#additem">
-		Add Item
-	</a>
 </div>
 <table class="inventory-item-list">
 	<tbody>
 	<% @items.each do |item_purchase| %>
 		<tr class="<%=  %>">
 			<td><%= item_purchase.name %></td>
-			<td><%= item_purchase.status_to_s %></td>
+			<td><a href="#" class="button">Add to Shopping List</a></td>
 		</tr>
 	<% end %>
 	</tbody>
