@@ -8,7 +8,8 @@ class CreateItemPurchases < ActiveRecord::Migration
       t.text :unit
       t.float :price_per_unit
       t.integer :status
-      t.string :override_storage_location, :default => ''
+      t.string :actual_storage_location
+      t.boolean :location_overridden, :default => false
       t.timestamps
     end
   end

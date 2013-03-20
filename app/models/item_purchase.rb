@@ -1,5 +1,9 @@
 class ItemPurchase < ActiveRecord::Base
-	attr_accessible :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit, :override_storage_location
+	attr_accessible :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit, :actual_storage_location, :location_overridden
+
+	# Callbacks
+	# NEED A CALLBACK HERE to handle setting the actual_storage_location to be the associated item's storage location
+	# Also need a callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
 
     # Constants
     STATUSES = { 3 => 'just_bought_it', 

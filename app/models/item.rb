@@ -12,6 +12,7 @@ class Item < ActiveRecord::Base
 	# Scopes
 
 	scope :alphabetical, order('name')
+	
 	# scope to retrieve items based on the passed in location value for their storage location
 	scope :stored_in, lambda{|location| where('storage_location = ?', location)}
  
