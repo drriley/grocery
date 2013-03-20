@@ -116,8 +116,7 @@ namespace :db do
         item_purchase.purchase_id = Purchase.all.sample.id
         item_purchase.quantity = rand(1..19)
         item_purchase.unit = ['lbs', 'bags', 'boxes', 'oz'].sample
-        # statuses should really be constants in the ItemPurchase model (TODO)
-        item_purchase.status = ['just bought it', 'running low', 'buy more'].sample
+        item_purchase.status = ItemPurchase::STATUSES.keys.sample
         item_purchase.save!
     }
 

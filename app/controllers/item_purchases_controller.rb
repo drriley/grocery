@@ -8,6 +8,7 @@ class ItemPurchasesController < ApplicationController
     
     # if the user passed in a valid location, render the inventory list for that location
     if (users_filter_parameter.nil? == false)
+
       @pagetitle = users_filter_parameter.humanize
       if (location_slugs_list.include?(users_filter_parameter))
         @items = Item.stored_in(users_filter_parameter).all

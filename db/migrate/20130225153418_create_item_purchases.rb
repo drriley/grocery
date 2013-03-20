@@ -7,7 +7,7 @@ class CreateItemPurchases < ActiveRecord::Migration
       t.float :quantity
       t.text :unit
       t.float :price_per_unit
-      t.text :status
+      t.integer :status
 
       t.timestamps
     end

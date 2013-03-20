@@ -7,17 +7,11 @@
 	</a>
 </div>
 <table class="inventory-item-list">
-	<thead>
-		<tr>
-			<th>Item</th>
-			<th>Bought It</th>
-		</tr>
-	</thead>
 	<tbody>
 	<% @items.each do |item| %>
 		<tr>
 			<td><%= item['name'] %></td>
-			<td><%= item['date_purchased'] %></td>
+			<td><%= item['status'] %></td>
 		</tr>
 	<% end %>
 	</tbody>
