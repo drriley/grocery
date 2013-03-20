@@ -8,10 +8,10 @@
 </div>
 <table class="inventory-item-list">
 	<tbody>
-	<% @items.each do |item| %>
-		<tr>
-			<td><%= item['name'] %></td>
-			<td><%= item['status'] %></td>
+	<% @items.each do |item_purchase| %>
+		<tr class="<%=  %>">
+			<td><%= item_purchase.name %></td>
+			<td><%= item_purchase.status_to_s %></td>
 		</tr>
 	<% end %>
 	</tbody>

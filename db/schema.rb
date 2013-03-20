@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20130225160323) do
     t.float    "quantity"
     t.text     "unit"
     t.float    "price_per_unit"
-    t.text     "status"
+    t.integer  "status"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

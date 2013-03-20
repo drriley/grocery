@@ -11,12 +11,13 @@ class ItemPurchasesController < ApplicationController
 
       @pagetitle = users_filter_parameter.humanize
       if (location_slugs_list.include?(users_filter_parameter))
-        @items = Item.stored_in(users_filter_parameter).all
+        @items = ItemPurchase.stored_in(users_filter_parameter).by_status.all
         render 'item_purchases/inventory_list'
 
       # also allow the user to pass in the 'running low' parameter, to render the running low inventory list
-      elsif (users_filter_parameter == 'running_low')
-        @items = Item.running_low.all
+      elsif (users_filter_parameter == 'almost_out')
+        status_number = STATUSES.index('almost_out')
+        @items = ItemPurchase.for_status(status_number)
         render 'item_purchases/inventory_list'
         # once the custom running_low view is done, the controller should
         # render that view instead of the inventory_list one
