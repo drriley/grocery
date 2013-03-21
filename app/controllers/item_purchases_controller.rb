@@ -34,6 +34,7 @@ class ItemPurchasesController < ApplicationController
 
 	end # end index
 
+  # test url for output: http://localhost:3000/item_purchases/company_intel?company_id=29&start_date='1/9/1990'&end_date='2/3/2013'
   def company_intel
     company_id = params[:company_id]
     start_date = params[:start_date]
