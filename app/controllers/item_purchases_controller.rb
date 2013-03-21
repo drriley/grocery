@@ -34,19 +34,15 @@ class ItemPurchasesController < ApplicationController
 
 	end # end index
 
-  def company_intell
-    company_parameter = params[:company_id]
+  def company_intel
+    company_id = params[:company_id]
     start_date = params[:start_date]
     end_date = params[:end_date]
 
-    
-
-    @intell = ItemPurchase.items_not_at_store(company_parameter)
-
-
+    @intel = ItemPurchase.get_market_share(company_id, start_date, end_date)
 
     respond_to do |format|
-      format.json { render json: @intell }
+      format.json
     end
   end
 

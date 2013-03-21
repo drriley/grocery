@@ -87,9 +87,9 @@ class ItemPurchase < ActiveRecord::Base
     	this_store_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).for_store(store_id).all
 
     	# unless no one bought this item anywhere in this time range
-    	unless all_store_purchases.length == 0
+    	unless all_purchases.length == 0
     		# return the proportion of purchases of this item that were made at this store
-    		market_share = this_store_purchases.length.to_s / all_purchases.length.to_s
+    		market_share = this_store_purchases.length / all_purchases.length.to_f
     		return market_share
     	# no purchases made
     	else
