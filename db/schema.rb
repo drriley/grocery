@@ -38,8 +38,10 @@ ActiveRecord::Schema.define(:version => 20130225160323) do
     t.text     "unit"
     t.float    "price_per_unit"
     t.integer  "status"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "actual_storage_location"
+    t.boolean  "location_overridden",     :default => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "item_stores", :force => true do |t|
