@@ -2,8 +2,14 @@ class ItemPurchase < ActiveRecord::Base
 	attr_accessible :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit, :actual_storage_location, :location_overridden
 
 	# Callbacks
-	# NEED A CALLBACK HERE to handle setting the actual_storage_location to be the associated item's storage location
-	# Also need a callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
+
+	# handles setting the actual_storage_location to be the associated item's storage location
+	before_save :set_default_item_location
+	
+	# callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
+	after_update :record_location_change
+	
+	
 
     # Constants
     STATUSES = { 3 => 'just_bought_it', 
@@ -52,5 +58,15 @@ class ItemPurchase < ActiveRecord::Base
     def name
     	self.item.name
     end
+
+    private
+    # these are mostly callback methods
+    	def set_default_item_location
+    		self.actual_storage_location = self.item.storage_location
+    	end
+
+    	def record_location_change
+    		self.update_attribute(:location_overridden, true)
+    	end
 
 end

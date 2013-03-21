@@ -112,10 +112,10 @@ namespace :db do
     70.times {
         item_purchase = ItemPurchase.new
         item_purchase.item_store_id = ItemStore.all.sample.id
-        item_purchase.price_per_unit = rand(1..7.65)
+        item_purchase.price_per_unit = rand(1..7)
         item_purchase.purchase_id = Purchase.all.sample.id
         item_purchase.quantity = rand(1..19)
-        item_purchase.unit = ['lbs', 'bags', 'boxes', 'oz'].sample
+        item_purchase.unit = ['lb', 'bag', 'box', 'oz'].sample
         item_purchase.status = ItemPurchase::STATUSES.keys.sample
         item_purchase.save!
     }
