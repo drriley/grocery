@@ -61,4 +61,11 @@ class ItemPurchaseTest < ActiveSupport::TestCase
     @item_purchase2.destroy
   end
   
+  should "have item purchases ordered by quantity" do
+        assert_equal [1,10], Item_purchase.by_quantity.map(|p| p.quantity)
+      end
+  
+  
+  
+  
 end
