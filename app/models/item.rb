@@ -7,6 +7,7 @@ class Item < ActiveRecord::Base
 
 	# Relationships
 	has_many :stores
+	has_many :shopping_list_items
 
 
 	# Scopes
