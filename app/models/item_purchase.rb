@@ -26,7 +26,7 @@ class ItemPurchase < ActiveRecord::Base
 
 	# Scopes
 	scope :by_quantity, order('quantity')
-	scope :alphabetical, order('name')
+	scope :alphabetical, joins(:purchase).order('name')
 	scope :by_status, order('status')
 
 	# orders item_purchases by their purchase date
