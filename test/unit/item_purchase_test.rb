@@ -34,7 +34,7 @@ class ItemPurchaseTest < ActiveSupport::TestCase
     setup do
       @Leonard = FactoryGirl.create(:customer)
       @purchase1 = FactoryGirl.create(:purchase, :customer => @Leonard)
-      @purchase2 = FactoryGirl.create(:purchase, :date => Date.2.days.ago, :customer => @Leonard )
+      @purchase2 = FactoryGirl.create(:purchase, :date => 2.days.ago, :customer => @Leonard )
       @item1 = FactoryGirl.create(:item)
       @item2 = FactoryGirl.create(:item, :name => "Kroger Milk", :generic_name => "Milk")
       @store1 = FactoryGirl.create(:store, :company => @company)
@@ -45,7 +45,7 @@ class ItemPurchaseTest < ActiveSupport::TestCase
       @item_purchase1 = FactoryGirl.create(:item_purchase, :purchase => @purchase1, :item_store => @item_store1, :quantity => 1, :unit => "Gallon", :price_per_unit => "3.99")
       @item_purchase2 = FactoryGirl.create(:item_purchase, :purchase => @purchase2, :item_store => @item_store2)
     end
-  
+
   teardown do
     @Leonard.destroy 
     @purchase1.destroy
@@ -61,4 +61,5 @@ class ItemPurchaseTest < ActiveSupport::TestCase
     @item_purchase2.destroy
   end
   
-end
+end # end context
+end #end class 
