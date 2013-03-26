@@ -3,5 +3,10 @@ class ShoppingListItem < ActiveRecord::Base
 
   # Relationships
   belongs_to :item
-  belongs_to :shopping_list
+  belongs_to :shopping_list, :dependent => :destroy
+
+  # Validations
+  validates_presence_of :item_id, :shopping_list_id
+
+
 end

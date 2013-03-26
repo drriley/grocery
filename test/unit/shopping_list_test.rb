@@ -1,7 +1,5 @@
 require 'test_helper'
 
 class ShoppingListTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should validate_presence_of(:customer_id)
 end
