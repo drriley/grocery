@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item_id: 1
+  visible_in_list: false
+  shopping_list_id: 1
+  purchased_yet: false
+
+two:
+  item_id: 1
+  visible_in_list: false
+  shopping_list_id: 1
+  purchased_yet: false
