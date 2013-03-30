@@ -5,6 +5,8 @@ class Store < ActiveRecord::Base
   belongs_to :company
   has_many :item_stores
   
+  validates_presence_of :phone, :zip, :street
+  
   # if zip included, it must be 5 digits only
   validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long", :allow_blank => true
   # phone can have dashes, spaces, dots and parens, but must be 10 digits
