@@ -5,3 +5,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Grocery::Application.load_tasks
+
+require 'single_test'
+SingleTest.load_tasks
+
+# to run a single unit test, just do rake test:model; e.g., rake test:store or rake test:company

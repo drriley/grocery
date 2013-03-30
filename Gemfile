@@ -29,6 +29,8 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
+  gem 'single_test'
+  # Check out the usefulness of this at http://flavio.castelli.name/2010/05/28/rails_execute_single_test/
 
   gem 'uglifier', '>= 1.0.3'
 end
