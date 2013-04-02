@@ -4,7 +4,7 @@ development:
   host: localhost
   database: greenbean_development
   pool: 5
-  username: postgres
+  username: 
   password:
 
 test: &TEST
@@ -13,16 +13,13 @@ test: &TEST
   host: localhost
   database: greenbean_test
   pool: 5
-  username: postgres 
-  password: test
+  username:
+  password:
 
 production:
   adapter: postgresql
   encoding: utf8
   database: greenbean_production
   pool: 5
-  username: postgres
-  password: test
-
-cucumber:
-  <<: *TEST
+  username:
+  password:

@@ -54,5 +54,12 @@ FactoryGirl.define do
     street "5000 Centre Ave."
     zip "15232"
   end
+  
+  factory :shopping_list_item do
+    association :customer
+    association :item
+    visible_in_list? true
+    purchased_yet? false
+  end
 
 end

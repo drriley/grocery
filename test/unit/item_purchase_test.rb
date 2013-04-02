@@ -46,31 +46,24 @@ class ItemPurchaseTest < ActiveSupport::TestCase
       @item_purchase2 = FactoryGirl.create(:item_purchase, :purchase => @purchase2, :item_store => @item_store2)
     end
 
-  teardown do
-    @Leonard.destroy 
-    @purchase1.destroy
-    @purchase2.destroy
-    @item1.destroy
-    @item2.destroy 
-    @store1.destroy 
-    @store2.destroy
-    @item_store1.destroy 
-    @item_store2.destroy
-    @company.destroy
-    @item_purchase1.destroy 
-    @item_purchase2.destroy
+    teardown do
+      @Leonard.destroy 
+      @purchase1.destroy
+      @purchase2.destroy
+      @item1.destroy
+      @item2.destroy 
+      @store1.destroy 
+      @store2.destroy
+      @item_store1.destroy 
+      @item_store2.destroy
+      @company.destroy
+      @item_purchase1.destroy 
+      @item_purchase2.destroy
+    end
+    
+    should "have item purchases ordered by quantity" do
+          assert_equal [1,10], Item_purchase.by_quantity.map{|p| p.quantity}
+    end
+  
   end
-  
-<<<<<<< HEAD
-  should "have item purchases ordered by quantity" do
-        assert_equal [1,10], Item_purchase.by_quantity.map(|p| p.quantity)
-  end
-  
-  
-  
-  
 end
-=======
-end # end context
-end #end class 
->>>>>>> 56bddda130d0ac1633226893969c6c409c84f840
