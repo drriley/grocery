@@ -1,16 +1,16 @@
 class ShoppingListItem < ActiveRecord::Base
-	attr_accessible :item_id, :purchased_yet, :shopping_list_id, :visible_in_list
+	attr_accessible :item_id, :purchased_yet, :customer_id, :visible_in_list
 
 
 	# Relationships
 
 	belongs_to :item
-	belongs_to :shopping_list, :dependent => :destroy
+	belongs_to :customer
 
 
 	# Validations
 
-	validates_presence_of :item_id, :shopping_list_id
+	validates_presence_of :item_id, :customer_id
 
 
 	# Methods
