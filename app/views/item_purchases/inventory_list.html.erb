@@ -1,12 +1,12 @@
-<div class="top-navbar">
-	<h1 class="page-title">
+<header class="bar-title">
+	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button"} %>
+	<h1 class="title">
 		<%= @pagetitle %>
 	</h1>
-	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back"} %>
-	<a class="navcell-2 right" href="#additem">
+	<a class="navcell-2 right button" href="#additem">
 		Add Item
 	</a>
-</div>
+</header>
 <table class="inventory-item-list">
 	<tbody>
 	<% @items.each do |item_purchase| %>
