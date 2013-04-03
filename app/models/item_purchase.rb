@@ -21,19 +21,21 @@ class ItemPurchase < ActiveRecord::Base
 	# Relationships
 	belongs_to :purchase
 	belongs_to :item_store
+	belongs_to :object, :class_name => "Object", :foreign_key => "object_id"
 	has_one :item, :through => :item_store
 
 
 	# Scopes
 	scope :by_quantity, order('quantity')
-	scope :alphabetical, joins(:purchase).order('name')
+	scope :alphabetical_by_name, joins(:purchase).order('name')
+	scope :alphabetical_by_generic_name, joins(:purchase).order('name')
 	scope :by_status, order('status')
 
 	# orders item_purchases by their purchase date
 	scope :chronological, joins(:purchase).order('date')
 	
 	# retrieve items based on the passed in location value for their storage location
-	scope :stored_in, lambda{|location| joins(:item).where('storage_location = ?', location)}
+	scope :stored_in, lambda{|location| where('actual_storage_location = ?', location)}
     
     # get items that have a given status
 	scope :for_status, lambda { |status| where('status = ?', status) }

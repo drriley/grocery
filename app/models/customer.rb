@@ -10,6 +10,15 @@ class Customer < ActiveRecord::Base
   scope :alphabetical, order('last_name, first_name')
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)
+  
+  # Other methods
+  def name
+    "#{last_name}, #{first_name}"
+  end
+  
+  def proper_name
+    "#{first_name} #{last_name}"
+  end
  
  #### TODO: need to figure out the parameter diff between allow_blank and validates_presence_of
  

@@ -47,4 +47,19 @@ class CustomerTest < ActiveSupport::TestCase
   should_not allow_value("3431").for(:zip)
   should_not allow_value("15213-9843").for(:zip)
   should_not allow_value("15d32").for(:zip)
+  
+  context "creating Leonard Sokol" do
+    setup do
+      @leonard = FactoryGirl.create(:customer)
+    end
+    
+    teardown do
+      @leonard.destroy
+    end
+    
+    should "show Leonard's name and proper name" do
+      assert_equal "Leonard Sokol", @leonard.proper_name
+      assert_equal "Sokol, Leonard", @leonard.name
+    end
+  end
 end

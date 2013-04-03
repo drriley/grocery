@@ -7,7 +7,7 @@ FactoryGirl.define do
     unit "box"
     price_per_unit 1.99
     status "just_bought_it"
-    override_storage_location "Fridge"
+    actual_storage_location "Fridge"
   end
   
   factory :purchase do

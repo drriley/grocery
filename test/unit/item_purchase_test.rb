@@ -32,7 +32,7 @@ class ItemPurchaseTest < ActiveSupport::TestCase
   context "creating 2 instances of item purchases" do
     
     setup do
-      @Leonard = FactoryGirl.create(:customer)
+      @leonard = FactoryGirl.create(:customer)
       @purchase1 = FactoryGirl.create(:purchase, :customer => @Leonard)
       @purchase2 = FactoryGirl.create(:purchase, :date => 2.days.ago, :customer => @Leonard )
       @item1 = FactoryGirl.create(:item)
@@ -63,6 +63,22 @@ class ItemPurchaseTest < ActiveSupport::TestCase
     
     should "have item purchases ordered by quantity" do
           assert_equal [1,10], Item_purchase.by_quantity.map{|p| p.quantity}
+    end
+    
+    should "sort items purchases by name" do
+      assert_equal [1,2], Item_purchase.alphabetical_by_name.map{|i| i.id}
+    end 
+    
+    should "order by date" do
+      assert_equal [2.days.ago,Date.today], Item_purchase.chronological.map{|i| i.purchase.date}
+    end
+    
+    should "return all item purchases stored in Fridge order by generic name" do
+      assert_equal ["Green Bean", "Milk"], Item_purchase.stored_in("Fridge").alphabetical_by_generic_name.map{|i| i.item.generic_name}
+    end
+    
+    should "return items that belong to a store" do
+      assert_equal ["Milk"], Item_purchase.for_store(2).alphabetical_by_generic_name.map{|i| i.item.generic_name}
     end
   
   end
