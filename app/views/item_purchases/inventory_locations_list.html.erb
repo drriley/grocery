@@ -1,15 +1,19 @@
-<div class="top-navbar">
-	<h1 class="page-title">
+<header class="bar-title">
+	<h1 class="title">
 		What I Have At Home
 	</h1>
+	<!-- 
 	<a class="navcell-2 right" href="#additem">
 		Add Item
-	</a>
-</div>
-<div class="inventory-locations-list">
-  <ul>
-    <% @item_sections.each do |section| %>
-      <li><%= link_to section[0], item_purchases_path(:f => section[1]) %></li>
-    <% end %>
-  </ul>
+	</a> -->
+</header>
+
+<div class="content inventory-locations-list">
+	<div class="padded-content">
+	  <ul class="list inset">
+	    <% @item_sections.each do |section| %>
+	      <li><%= link_to section[0], item_purchases_path(:f => section[1]) %></li>
+	    <% end %>
+	  </ul>
+	</div>
 </div>
