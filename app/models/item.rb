@@ -6,14 +6,14 @@ class Item < ActiveRecord::Base
 
 
 	# Relationships
-	has_many :stores
+	has_many :item_stores
 	has_many :shopping_list_items
 
 
 	# Scopes
 
-	scope :alphabetical, order('name')
-	
+	scope :alphabetical_by_name, order('name')
+	scope :alphabetical_by_generic_name, order('generic_name')
 	# scope to retrieve items based on the passed in location value for their storage location
 	scope :stored_in, lambda{|location| where('storage_location = ?', location)}
  

@@ -40,7 +40,7 @@ gem 'jquery-rails'
 
 group :test do
   gem 'shoulda'
-  gem 'shoulda-matchers', :git => 'https://github.com/moffff/shoulda-matchers.git'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'mocha'
   gem 'simplecov'

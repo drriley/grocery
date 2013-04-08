@@ -3,7 +3,7 @@ class CreatePurchases < ActiveRecord::Migration
     create_table :purchases do |t|
       t.integer :_id
       t.integer :customer_id
-      t.datetime :date
+      t.date :date
 
       t.timestamps
     end
