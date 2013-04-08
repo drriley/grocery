@@ -4,9 +4,9 @@ development:
   host: localhost
   database: greenbean_development
   pool: 5
-  username: postgres
-  password: test
-
+  username: 
+  password: 
+  
 test: &TEST
   adapter: postgresql
   encoding: utf8
