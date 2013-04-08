@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(:version => 20130326214853) do
   create_table "purchases", :force => true do |t|
     t.integer  "_id"
     t.integer  "customer_id"
-    t.datetime "date"
+    t.date     "date"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

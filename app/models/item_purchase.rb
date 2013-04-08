@@ -1,11 +1,12 @@
 class ItemPurchase < ActiveRecord::Base
-	attr_accessible :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit, :actual_storage_location, :location_overridden
+	attr_accessible :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit, :actual_storage_location
 
-	# Callbacks
 
-	# handles setting the actual_storage_location to be the associated item's storage location
-	before_save :set_default_item_location
+
 	
+	# Callbacks
+	 # handles setting the actual_storage_location to be the associated item's storage location
+	before_save :set_default_item_location
 	# callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
 	after_update :record_location_change
 	
@@ -21,14 +22,22 @@ class ItemPurchase < ActiveRecord::Base
 	# Relationships
 	belongs_to :purchase
 	belongs_to :item_store
-	belongs_to :object, :class_name => "Object", :foreign_key => "object_id"
 	has_one :item, :through => :item_store
+
+  # validations
+  validates_presence_of :quantity
+	validates_presence_of :unit          
+  validates_presence_of :price_per_unit
+	validates_presence_of :status
+	
+	validates_numericality_of :quantity, :greater_than => 0
+	
 
 
 	# Scopes
 	scope :by_quantity, order('quantity')
-	scope :alphabetical_by_name, joins(:purchase).order('name')
-	scope :alphabetical_by_generic_name, joins(:purchase).order('name')
+	scope :alphabetical_by_name, joins(:item).order('name')
+	scope :alphabetical_by_generic_name, joins(:item).order('generic_name')
 	scope :by_status, order('status')
 
 	# orders item_purchases by their purchase date
@@ -50,7 +59,7 @@ class ItemPurchase < ActiveRecord::Base
     scope :for_purchase, lambda {|purchase_id| where('purchase_id = ?', purchase_id)}
 
     # get all of the item purchases for a given store
-    scope :for_store, lambda{|store_id| joins(:item_store).where('store_id = ?', store_id)}
+    scope :for_store, lambda{|store_id| joins(:item_store).where('item_stores.store_id = ?', store_id)}
 
     # get item_purchases from a given date range
     scope :for_date_range, lambda {|start_date, end_date| joins(:purchase).where('date BETWEEN ? AND ?', start_date.to_date, end_date.to_date) }
@@ -67,37 +76,37 @@ class ItemPurchase < ActiveRecord::Base
     	self.item.name
     end
 
-    def self.get_market_share(store_id, start_date, end_date)
-    	market_share = {}
-    	items = Item.all
-    	items.each do |item|
-    		# call helper
-    		market_share_for_item = ItemPurchase.get_item_market_share(item.id, store_id, start_date, end_date)
-    		# save market share to hash
-    		market_share[item.name] = market_share_for_item
-    	end
-    	return market_share
-    end
-
-    # static (class) method which returns a hash of items mapped to the percent of the items bought at the given store
-    # (TODO - this could be optimized to make fewer database queries)
-    def self.get_item_market_share(item_id, store_id, start_date, end_date)
-    	# get all of the item_purchase records in this date range (this is the total)
-    	all_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).all
-
-    	# get all the item_purchase records for this store (this is what we'll divide by the total)
-    	this_store_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).for_store(store_id).all
-
-    	# unless no one bought this item anywhere in this time range
-    	unless all_purchases.length == 0
-    		# return the proportion of purchases of this item that were made at this store
-    		market_share = this_store_purchases.length / all_purchases.length.to_f
-    		return market_share
-    	# no purchases made
-    	else
-    		return 'None purchased in this time period at any store.'
-    	end
-    end
+    # def self.get_market_share(store_id, start_date, end_date)
+    #   market_share = {}
+    #   items = Item.all
+    #   items.each do |item|
+    #     # call helper
+    #     market_share_for_item = ItemPurchase.get_item_market_share(item.id, store_id, start_date, end_date)
+    #     # save market share to hash
+    #     market_share[item.name] = market_share_for_item
+    #   end
+    #   return market_share
+    # end
+    # 
+    # # static (class) method which returns a hash of items mapped to the percent of the items bought at the given store
+    # # (TODO - this could be optimized to make fewer database queries)
+    # def self.get_item_market_share(item_id, store_id, start_date, end_date)
+    #   # get all of the item_purchase records in this date range (this is the total)
+    #   all_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).all
+    # 
+    #   # get all the item_purchase records for this store (this is what we'll divide by the total)
+    #   this_store_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).for_store(store_id).all
+    # 
+    #   # unless no one bought this item anywhere in this time range
+    #   unless all_purchases.length == 0
+    #     # return the proportion of purchases of this item that were made at this store
+    #     market_share = this_store_purchases.length / all_purchases.length.to_f
+    #     return market_share
+    #   # no purchases made
+    #   else
+    #     return 'None purchased in this time period at any store.'
+    #   end
+    # end
 
     private
     # these are mostly callback methods
