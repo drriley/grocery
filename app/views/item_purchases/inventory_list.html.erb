@@ -7,13 +7,17 @@
 		Add Item
 	</a>
 </header>
-<table class="inventory-item-list">
-	<tbody>
-	<% @items.each do |item_purchase| %>
-		<tr class="<%=  %>">
-			<td><%= item_purchase.name %></td>
-			<td><%= item_purchase.status_to_s %></td>
-		</tr>
-	<% end %>
-	</tbody>
-</table>
+<div class="content">
+	<div class="inventory-item-list">
+		<table>
+			<tbody>
+			<% @items.each do |item_purchase| %>
+				<tr class="<%=  %>">
+					<td><%= item_purchase.name %></td>
+					<td><%= item_purchase.status_to_s %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
