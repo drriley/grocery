@@ -11,6 +11,7 @@ gem 'pg'
 gem 'execjs'
 #gem 'therubyracer'
 
+
 group :development do
   # these are for populating our database with fake data
   gem 'populator'
@@ -39,12 +40,14 @@ gem 'jquery-rails'
 
 group :test do
   gem 'shoulda'
-  gem 'shoulda-matchers', :git => 'https://github.com/moffff/shoulda-matchers.git'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'mocha'
   gem 'simplecov'
   gem 'tconsole'
 end
+
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
