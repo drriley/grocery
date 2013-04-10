@@ -8,6 +8,9 @@ class ShoppingListItem < ActiveRecord::Base
 
 	# Scopes
 	scope :for_customer, lambda{|customer_id| where('customer_id = ?', customer_id)}
+	scope :alphabetical_by_name, joins(:item).order('name')
+	scope :alphabetical_by_generic_name, joins(:item).order('generic_name')
+	
 
 	# Validations
 	validates_presence_of :item_id, :customer_id
