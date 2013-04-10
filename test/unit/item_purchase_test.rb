@@ -86,5 +86,11 @@ class ItemPurchaseTest < ActiveSupport::TestCase
       assert_equal ["Milk"], ItemPurchase.for_store(@item_store2.store_id).alphabetical_by_generic_name.map{|i| i.item.generic_name}
     end
   
+<<<<<<< HEAD
+<<<<<<< HEAD
+  should "have item purchases ordered by quantity" do
+        assert_equal [1,10], Item_purchase.by_quantity.map{|p| p.quantity}
+=======
+>>>>>>> acf79b8d443d97162c2d7339fa2cde80f6fd6bd7
   end
 end

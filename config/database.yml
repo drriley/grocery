@@ -5,6 +5,8 @@ development:
   database: greenbean_development
   pool: 5
   username: 
+  password:
+
   password: 
   
 test: &TEST
@@ -13,6 +15,8 @@ test: &TEST
   host: localhost
   database: greenbean_test
   pool: 5
+  username: 
+  password: 
   username:
   password:
 
@@ -21,5 +25,10 @@ production:
   encoding: utf8
   database: greenbean_production
   pool: 5
+  username: 
+  password: 
+
+cucumber:
+  <<: *TEST
   username:
   password:
