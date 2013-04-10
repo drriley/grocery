@@ -4,4 +4,6 @@ class Purchase < ActiveRecord::Base
 	# Relationships
 	belongs_to :customer
 	has_many :item_purchases
+	
+	validates_presence_of :date
 end

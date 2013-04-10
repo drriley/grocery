@@ -7,7 +7,7 @@ FactoryGirl.define do
     unit "box"
     price_per_unit 1.99
     status "just_bought_it"
-    override_storage_location "Fridge"
+    actual_storage_location "Fridge"
   end
   
   factory :purchase do
@@ -53,6 +53,13 @@ FactoryGirl.define do
     phone { rand(10 ** 10).to_s.rjust(10,'0') }
     street "5000 Centre Ave."
     zip "15232"
+  end
+  
+  factory :shopping_list_item do
+    association :customer
+    association :item
+    visible_in_list? true
+    purchased_yet? false
   end
 
 end

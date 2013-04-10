@@ -11,6 +11,7 @@ gem 'pg'
 gem 'execjs'
 #gem 'therubyracer'
 
+
 group :development do
   # these are for populating our database with fake data
   gem 'populator'
@@ -45,6 +46,8 @@ group :test do
   gem 'simplecov'
   gem 'tconsole'
 end
+
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

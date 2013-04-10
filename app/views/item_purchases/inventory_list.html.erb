@@ -1,19 +1,32 @@
-<div class="top-navbar">
-	<h1 class="page-title">
+<header class="bar-title">
+	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button"} %>
+	<h1 class="title">
 		<%= @pagetitle %>
 	</h1>
-	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back"} %>
-	<a class="navcell-2 right" href="#additem">
+	<a class="navcell-2 right button" href="#additem">
 		Add Item
 	</a>
+</header>
+<div class="content">
+	<div class="inventory-item-list">
+		<table>
+			<tbody>
+			<% @items.each do |item_purchase| %>
+				<tr class="<%=  %>">
+					<td><%= item_purchase.name %></td>
+					<td><%= item_purchase.status_to_s %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>
-<table class="inventory-item-list">
-	<tbody>
-	<% @items.each do |item_purchase| %>
-		<tr class="<%=  %>">
-			<td><%= item_purchase.name %></td>
-			<td><%= item_purchase.status_to_s %></td>
-		</tr>
-	<% end %>
-	</tbody>
-</table>
+    <div class="tab-nav">
+      <ul>
+      
+        <li><a href="#">at home</a></li>
+      
+        <li><a href="#">shopping list</a></li>
+      
+      </ul>
+    </div>

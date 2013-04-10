@@ -5,24 +5,39 @@ development:
   database: greenbean_development
   pool: 5
   username: 
+<<<<<<< HEAD
   password:
 
+=======
+  password: 
+  
+>>>>>>> acf79b8d443d97162c2d7339fa2cde80f6fd6bd7
 test: &TEST
   adapter: postgresql
   encoding: utf8
   host: localhost
   database: greenbean_test
   pool: 5
+<<<<<<< HEAD
   username: 
   password: 
+=======
+  username:
+  password:
+>>>>>>> acf79b8d443d97162c2d7339fa2cde80f6fd6bd7
 
 production:
   adapter: postgresql
   encoding: utf8
   database: greenbean_production
   pool: 5
+<<<<<<< HEAD
   username: 
   password: 
 
 cucumber:
   <<: *TEST
+=======
+  username:
+  password:
+>>>>>>> acf79b8d443d97162c2d7339fa2cde80f6fd6bd7
