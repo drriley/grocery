@@ -63,7 +63,7 @@ class ItemPurchaseTest < ActiveSupport::TestCase
   
 <<<<<<< HEAD
   should "have item purchases ordered by quantity" do
-        assert_equal [1,10], Item_purchase.by_quantity.map(|p| p.quantity)
+        assert_equal [1,10], Item_purchase.by_quantity.map{|p| p.quantity}
   end
   
   
