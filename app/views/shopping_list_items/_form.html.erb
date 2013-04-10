@@ -1,0 +1,12 @@
+
+<%= simple_form_for @shopping_list_items, :html => { :class => 'form-horizontal'} do |f| %>
+	<%= f.input :item_id, :collection => Item.alphabetical_by_name %>
+	<%= f.input :customer_id, :collection => Item.alphabetical_by_name %>
+	<%if controller.action_name == 'edit'%>
+	<%= f.input :purchased_yet %>
+	<%= f.input :visible_in_list %>
+	
+	<%end%>
+	
+	
+<% end %>
