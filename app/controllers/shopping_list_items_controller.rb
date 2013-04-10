@@ -1,5 +1,5 @@
 class ShoppingListItemsController < ApplicationController
 	def index
-		@shopping_list_items = ShoppingListItems.all
+		@shopping_list_items = ShoppingListItem.all
 	end
 end

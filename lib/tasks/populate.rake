@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
 
     # clear any old data in the db
-    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase].each(&:delete_all)
+    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase, ShoppingListItem].each(&:delete_all)
 
     # create a few companies. company's only attribute is name.
     companies = ['Giant Eagle', "Trader Joe's", 'Whole Foods', 'IGN']
@@ -118,6 +118,15 @@ namespace :db do
         item_purchase.unit = ['lb', 'bag', 'box', 'oz'].sample
         item_purchase.status = ItemPurchase::STATUSES.keys.sample
         item_purchase.save!
+    }
+
+    # create shopping_list_items
+    # attrs are :item_id, :customer_id, :visible_in_list (:default => true), :purchased_yet (:default => false)
+    100.times {
+        shopping_list_item = ShoppingListItem.new
+        shopping_list_item.item_id = Item.all.sample.id
+        shopping_list_item.customer_id = Customer.all.sample.id
+        shopping_list_item.save!
     }
 
   end
