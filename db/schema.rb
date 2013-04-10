@@ -74,17 +74,11 @@ ActiveRecord::Schema.define(:version => 20130408014106) do
 
   create_table "shopping_list_items", :force => true do |t|
     t.integer  "item_id"
-    t.integer  "shopping_list_id"
-    t.boolean  "visible_in_list",  :default => true
-    t.boolean  "purchased_yet",    :default => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-  end
-
-  create_table "shopping_lists", :force => true do |t|
     t.integer  "customer_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "visible_in_list", :default => true
+    t.boolean  "purchased_yet",   :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "stores", :force => true do |t|

@@ -1,0 +1,19 @@
+<header class="bar-title">
+	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button"} %>
+	<h1 class="title">
+		Shopping List
+	</h1>
+	<a class="navcell-2 right button" href="#add_shopping_list_item">
+		Add Item
+	</a>
+</header>
+<div class="content">
+	<div class="shopping-list">
+		<ul>
+		 <% @shopping_list_items.each do |item| %>
+		 	<li><%= item.name %></li>
+		 <% end %>
+		</ul>
+	</div>
+</div>
+<%= render :partial 'tab_nav' %>
