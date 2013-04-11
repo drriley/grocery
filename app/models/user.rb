@@ -1,11 +1,38 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+	# Include default devise modules. 
+	# Others available are:
+	# :token_authenticatable, :confirmable, :lockable, :timeoutable and :omniauthable
+	devise :database_authenticatable, :registerable,
+	     :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  # attr_accessible :title, :body
+
+	# Callbacks
+	# after_create :create_customer
+
+	# this isn't working right now - 
+	# need to figure out how models will get created when someone registers. 
+	# customer model first or user model first?
+	# use virtual attributes??
+
+
+	# Attributes
+
+	# Setup accessible (or protected) attributes for model
+	attr_accessible :email, :password, :password_confirmation, :remember_me
+	# attr_accessible :title, :body
+
+
+	# Relationships
+
+	has_one :customer, :dependent => :destroy
+
+
+	# Callbacks
+
+    # create a customer model for each user (since we only have one role at the moment)
+    # def create_customer
+	# 	@customer = Customer.new
+	# 	@customer.user = self
+	# 	@customer.save!
+	# end
 end
