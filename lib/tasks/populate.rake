@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
 
     # clear any old data in the db
-    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase].each(&:delete_all)
+    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase, User].each(&:delete_all)
 
     # create a few companies. company's only attribute is name.
     companies = ['Giant Eagle', "Trader Joe's", 'Whole Foods', 'IGN']
@@ -65,7 +65,7 @@ namespace :db do
         customer.zip = Faker::Address.zip_code[0,5]
         # save to the database
         customer.save!
-    }
+    end
 
     # give our customers some memberships
     # memberships' attrs are: :company_id, :customer_id, :loyalty_id
@@ -110,25 +110,28 @@ namespace :db do
 
     # create some purchases
     # purchases' attrs: :customer_id, :date
-    50.times {
+    Customer.all.each do |customer|
         purchase = Purchase.new
-        purchase.customer_id = Customer.all.sample.id # one of our customer records, picked at random
+        purchase.customer_id = customer.id
         purchase.date = Time.at(rand * Time.now.to_i) # some random date
         purchase.save!
-    }
+    end
 
     # create item_purchases
     # item_purchases' attrs: :_id, :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit
-    70.times {
-        item_purchase = ItemPurchase.new
-        item_purchase.item_store_id = ItemStore.all.sample.id
-        item_purchase.price_per_unit = rand(1..7)
-        item_purchase.purchase_id = Purchase.all.sample.id
-        item_purchase.quantity = rand(1..19)
-        item_purchase.unit = ['lb', 'bag', 'box', 'oz'].sample
-        item_purchase.status = ItemPurchase::STATUSES.keys.sample
-        item_purchase.save!
-    }
+    Purchase.all.each do |purchase|
+        num_items = rand(1..30)
+        num_items.times {
+            item_purchase = ItemPurchase.new
+            item_purchase.item_store_id = ItemStore.all.sample.id
+            item_purchase.price_per_unit = rand(1..7)
+            item_purchase.purchase_id = Purchase.all.sample.id
+            item_purchase.quantity = rand(1..19)
+            item_purchase.unit = ['lb', 'bag', 'box', 'oz'].sample
+            item_purchase.status = ItemPurchase::STATUSES.keys.sample
+            item_purchase.save!
+        }
+    end
 
   end
 end

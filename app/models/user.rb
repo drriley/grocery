@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
 
 	# Methods
 	def customer_id
-		return Customer.where('user_id = ?', self.id).id
+		return Customer.where('user_id = ?', self.id).first.id
 	end
 
 
