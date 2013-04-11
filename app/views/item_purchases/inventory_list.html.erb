@@ -1,5 +1,5 @@
 <header class="bar-title">
-	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button"} %>
+	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button-prev"} %>
 	<h1 class="title">
 		<%= @pagetitle %>
 	</h1>
@@ -7,13 +7,10 @@
 		Add Item
 	</a>
 </header>
-<table class="inventory-item-list">
-	<tbody>
-	<% @items.each do |item_purchase| %>
-		<tr class="<%=  %>">
-			<td><%= item_purchase.name %></td>
-			<td><%= item_purchase.status_to_s %></td>
-		</tr>
-	<% end %>
-	</tbody>
-</table>
+<div class = "content">
+	<ul class="list">
+		<% @items.each do |item_purchase| %>
+	 		 <li><%= item_purchase.name %> <span class="count"><%= item_purchase.status_to_s %></span></li>
+		<% end %>
+	</ul>
+</div>

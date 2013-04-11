@@ -1,16 +1,18 @@
-<div class="top-navbar">
-	<h1 class="page-title">
+<div class="bar-title">
+	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button-prev"} %>
+	<h1 class="title">
 		Almost Out
 	</h1>
-	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back"} %>
 </div>
-<table class="inventory-item-list">
-	<tbody>
-	<% @items.each do |item_purchase| %>
-		<tr class="<%=  %>">
-			<td><%= item_purchase.name %></td>
-			<td><a href="#" class="button">Add to Shopping List</a></td>
-		</tr>
-	<% end %>
-	</tbody>
-</table>
+<div class="content">
+	<table class="running-low-list">
+		<tbody>
+		<% @items.each do |item_purchase| %>
+			<tr class="<%=  %>">
+				<td><%= item_purchase.name %></td>
+				<td><a href="#" class="button">Add to Shopping List</a></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+</div>
