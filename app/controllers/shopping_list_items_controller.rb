@@ -1,9 +1,9 @@
 class ShoppingListItemsController < ApplicationController
   # user must be logged in to get to inventory info
-  authorize_resource!
+  before_filter :authenticate_user!
 	
   def index
-	@shopping_list_items = ShoppingListItem.all
+	  @shopping_list_items = ShoppingListItem.all
   end
 
   def new
