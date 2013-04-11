@@ -23,11 +23,16 @@ class User < ActiveRecord::Base
 
 
 	# Relationships
-
 	has_one :customer, :dependent => :destroy
 
 
-	# Callbacks
+	# Methods
+	def customer_id
+		return Customer.where('user_id = ?', self.id).id
+	end
+
+
+	# Callback Methods
 
     # create a customer model for each user (since we only have one role at the moment)
     # def create_customer

@@ -41,13 +41,23 @@ namespace :db do
       store.save!
     end
 
-    # add some customers 
-    # customers' attributes: :email, :first_name, :last_name, :phone, :street, :zip
+    # crate users
     30.times {
+        user = User.new
+        user.email = Faker::Internet.email
+        user.password = "testtest"
+        user.password_confirmation = "testtest"
+        user.save!
+    }
+
+    # add some customers 
+    # customers' attributes: :first_name, :last_name, :phone, :street, :zip
+    User.all.each do |user|
         # new instance of customer
         customer = Customer.new
+        # associate this customer with this user
+        customer.user_id = user.id
         # lotsa fake data
-        customer.email = Faker::Internet.email
         customer.first_name = Faker::Name.first_name
         customer.last_name = Faker::Name.last_name
         customer.phone = rand(10 ** 10).to_s.rjust(10,'0')
