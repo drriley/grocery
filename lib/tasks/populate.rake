@@ -13,11 +13,7 @@ namespace :db do
     require 'faker'
 
     # clear any old data in the db
-<<<<<<< HEAD
-    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase, ShoppingListItem].each(&:delete_all)
-=======
-    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase, User].each(&:delete_all)
->>>>>>> devise
+    [Company, Store, Item, ItemPurchase, ItemStore, Membership, Customer, Purchase, ShoppingListItem, User].each(&:delete_all)
 
     # create a few companies. company's only attribute is name.
     companies = ['Giant Eagle', "Trader Joe's", 'Whole Foods', 'IGN']

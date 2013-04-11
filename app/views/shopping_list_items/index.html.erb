@@ -9,11 +9,15 @@
 </header>
 <div class="content">
 	<div class="shopping-list">
+		<% unless @shopping_list_items.nil? %>
 		<ul>
 		 <% @shopping_list_items.each do |item| %>
 		 	<li><%= item.name %></li>
 		 <% end %>
 		</ul>
+		<% else %>
+		<p>There are no items on your shopping list.</p>
+		<% end %>
 	</div>
 
 </div>

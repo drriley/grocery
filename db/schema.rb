@@ -31,17 +31,21 @@ ActiveRecord::Schema.define(:version => 20130408014106) do
   end
 
   create_table "item_purchases", :force => true do |t|
+    t.integer  "_id"
     t.integer  "purchase_id"
     t.integer  "item_store_id"
     t.float    "quantity"
     t.text     "unit"
     t.float    "price_per_unit"
-    t.text     "status"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "status"
+    t.string   "actual_storage_location"
+    t.boolean  "location_overridden",     :default => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "item_stores", :force => true do |t|
+    t.integer  "_id"
     t.integer  "item_id"
     t.integer  "store_id"
     t.datetime "created_at", :null => false
@@ -49,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130408014106) do
   end
 
   create_table "items", :force => true do |t|
+    t.integer  "_id"
     t.string   "name"
     t.string   "generic_name"
     t.string   "storage_location"
@@ -66,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20130408014106) do
   end
 
   create_table "purchases", :force => true do |t|
+    t.integer  "_id"
     t.integer  "customer_id"
     t.date     "date"
     t.datetime "created_at",  :null => false
