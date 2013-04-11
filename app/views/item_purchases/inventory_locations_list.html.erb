@@ -8,12 +8,14 @@
 	</a> -->
 </header>
 
-<%= render :partial => 'partials/bottom' %>
+<%= render :partial => 'partials/tab_nav' %>
 
 <div class="content inventory-locations-list">
-  <ul class="list inset">
-    <% @item_sections.each do |section| %>
-      <li><%= link_to section[0], item_purchases_path(:f => section[1]) %></li>
-    <% end %>
-  </ul>
+	<div class="padded-content">
+	  <ul class="list inset">
+	    <% @item_sections.each do |section| %>
+	      <li><%= link_to section[0], item_purchases_path(:f => section[1]) %></li>
+	    <% end %>
+	  </ul>
+	</div>
 </div>

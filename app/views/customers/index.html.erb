@@ -1,0 +1,8 @@
+<table>
+	<% @customers.each do |c| %>
+		<tr>
+			<td><%= c.name %></td>
+			<td><%= c.user.email %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,4 +1,6 @@
 class ItemPurchasesController < ApplicationController
+  # user must be logged in to get to inventory info
+  before_filter :authenticate_user!
 
 	def index
     # list of possible location options that a user could pass in
@@ -12,14 +14,15 @@ class ItemPurchasesController < ApplicationController
     # also allow the user to pass in statuses
     if (status_options_list.include?(users_filter_parameter))
       status_number = ItemPurchase::STATUSES.key(users_filter_parameter)
-      @items = ItemPurchase.for_status(status_number).all
+      # also filter by current customer
+      @items = ItemPurchase.for_customer(current_user.customer_id).for_status(status_number).all
       render 'item_purchases/quick_add_list'
       # once the custom running_low view is done, the controller should
       # render that view instead of the inventory_list one
     
     elsif (location_slugs_list.include?(users_filter_parameter))
       @pagetitle = users_filter_parameter.humanize
-      @items = ItemPurchase.stored_in(users_filter_parameter).by_status.all
+      @items = ItemPurchase.for_customer(current_user.customer_id).stored_in(users_filter_parameter).by_status.all
       render 'item_purchases/inventory_list'
 
     # otherwise if there's no parameter or the parameter is invalid, just render links to the item sections

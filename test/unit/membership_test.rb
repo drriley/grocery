@@ -15,9 +15,5 @@ class MembershipTest < ActiveSupport::TestCase
   should allow_value("348983491Ghdaf").for(:loyalty_id)
   should allow_value("9324dcjjdjdjds").for(:loyalty_id)
   
-  should_not allow_value("1").for(:loyalty_id)
-  should_not allow_value("fred@fred.com").for(:loyalty_id)
-  should_not allow_value("my fred@fred.com").for(:loyalty_id)
-  should_not allow_value("9371233333").for(:loyalty_id)
   
 end

@@ -1,7 +1,15 @@
 Grocery::Application.routes.draw do
 
+  devise_for :users
+
+  # custom routing for competitive intelligence data
   match 'item_purchases/company_intel' => 'item_purchases#company_intel', :defaults=>{:format =>'json'}
-  resources :item_purchases
-  root :to => 'item_purchases#index'
   
+  resources :item_purchases
+  resources :shopping_list_items
+
+  resources :customers # just for development
+
+  # inventory is homepage
+  root :to => 'item_purchases#index'
 end

@@ -4,12 +4,13 @@ gem 'rails', '3.2.8'
 gem 'bundle'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'simple_form'
 # postgres and heroku
 gem 'pg'
 # using heroku toolbelt instead of gem 'heroku'
 gem 'execjs'
 #gem 'therubyracer'
+
 
 group :development do
   # these are for populating our database with fake data
@@ -39,12 +40,19 @@ gem 'jquery-rails'
 
 group :test do
   gem 'shoulda'
-  gem 'shoulda-matchers', :git => 'https://github.com/moffff/shoulda-matchers.git'
+  gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'mocha'
   gem 'simplecov'
   gem 'tconsole'
 end
+
+# for authorization
+gem 'devise'
+
+# for authentication
+gem 'cancan'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
