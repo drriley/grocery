@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(:version => 20130408014106) do
   create_table "customers", :force => true do |t|
     t.string   "last_name"
     t.string   "first_name"
-    t.string   "email"
     t.string   "phone"
     t.string   "street"
     t.string   "zip"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

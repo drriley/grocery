@@ -47,7 +47,12 @@ group :test do
   gem 'tconsole'
 end
 
+# for authorization
 gem 'devise'
+
+# for authentication
+gem 'cancan'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

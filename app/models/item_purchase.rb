@@ -1,17 +1,13 @@
 class ItemPurchase < ActiveRecord::Base
 	attr_accessible :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit, :actual_storage_location
-
-
-
 	
 	# Callbacks
-	 # handles setting the actual_storage_location to be the associated item's storage location
+	# handles setting the actual_storage_location to be the associated item's storage location
 	before_save :set_default_item_location
 	# callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
 	after_update :record_location_change
 	
 	
-
     # Constants
     STATUSES = { 3 => 'just_bought_it', 
     			 2 => 'still_have_some',
@@ -24,15 +20,13 @@ class ItemPurchase < ActiveRecord::Base
 	belongs_to :item_store
 	has_one :item, :through => :item_store
 
-  # validations
-  validates_presence_of :quantity
-	validates_presence_of :unit          
-  validates_presence_of :price_per_unit
-	validates_presence_of :status
-	
+    # Validations
+    validates_presence_of :quantity
+    validates_presence_of :unit          
+    validates_presence_of :price_per_unit
+    validates_presence_of :status
 	validates_numericality_of :quantity, :greater_than => 0
 	
-
 
 	# Scopes
 	scope :by_quantity, order('quantity')
