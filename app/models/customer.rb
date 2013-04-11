@@ -4,7 +4,7 @@ class Customer < ActiveRecord::Base
   # relationships
   has_many :memberships
   has_many :purchases
-  has_one :shopping_list
+  has_many :shopping_list_items
   
   # scopes
   scope :alphabetical, order('last_name, first_name')
