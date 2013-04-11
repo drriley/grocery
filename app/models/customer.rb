@@ -5,6 +5,7 @@ class Customer < ActiveRecord::Base
   has_many :memberships
   has_many :purchases
   has_many :shopping_list_items
+  belongs_to :user
   
   # Scopes
   scope :alphabetical, order('last_name, first_name')

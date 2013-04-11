@@ -8,6 +8,8 @@ Grocery::Application.routes.draw do
   resources :item_purchases
   resources :shopping_list_items
 
+  resources :customers # just for development
+
   # inventory is homepage
   root :to => 'item_purchases#index'
 
