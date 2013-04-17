@@ -3,6 +3,7 @@
 <%= f.input :customer_id, :collection => Customer.alphabetical, :include_blank => true %>
 	<%= f.input :item_id, :collection => Item.alphabetical_by_name, :include_blank => true %>
 	
+	
 	<%if controller.action_name == 'edit'%>
 	<%= f.input :purchased_yet %>
 	<%= f.input :visible_in_list %>
