@@ -1,12 +1,17 @@
 
 <%= simple_form_for @shopping_list_item do |f| %>
-	<%= f.input :item_id, :collection => Item.alphabetical_by_name %>
-	<%#= f.input :customer_id, :collection => Customer.alphabetical, :first_name, :last_name %>
+<%= f.input :customer_id, :collection => Customer.alphabetical, :include_blank => true %>
+	<%= f.input :item_id, :collection => Item.alphabetical_by_name, :include_blank => true %>
+	
 	<%if controller.action_name == 'edit'%>
 	<%= f.input :purchased_yet %>
 	<%= f.input :visible_in_list %>
 	
 	<%end%>
 	
+	<div class="form-actions">
+    <%= f.submit nil, :class => 'button' %>
+    <%= link_to 'Cancel', shopping_list_items_path, :class => 'button' %>
+  </div>
 	
 <% end %>

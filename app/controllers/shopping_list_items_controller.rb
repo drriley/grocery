@@ -7,7 +7,19 @@ class ShoppingListItemsController < ApplicationController
   end
 
   def new
-    @shopping_list_item = ShoppingListItem.new
+    if params[:from].nil?
+      if params[:id].nil?
+        @shopping_list_item = ShoppingListItem.new
+      else
+        @shopping_list_item = ShoppingListItem.find(params[:id])
+      end
+    else
+      @shopping_list_item = ShoppingListItem.new
+      if params[:from] == "almost_out" 
+        @shopping_list_item.customer_id = params[:customer_id]
+        @shopping_list_item.item_id = params[:item_id]
+      end
+    end
   end
 
   def edit
