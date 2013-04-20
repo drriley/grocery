@@ -81,23 +81,21 @@ namespace :db do
         }
     end
 
- #add some items
-     #items' attrs: :est_shelf_life, :generic_name, :name, :storage_location
+ add some items
+     items' attrs: :est_shelf_life, :generic_name, :name, :storage_location
     items = ['apples', 'steak', 'pita chips', 'potatoes', 'whole wheat crackers', 'peanut butter', 'canned peas', 'frozen mixed vegetables', 'yogurt', 'wheat flakes cereal', 'clementines', 'canned tuna', 'salmon', 'clementines', 'pineapple', 'popcorn', 'potato chips', 'red potatoes', 'macaroni and cheese', 'linguine pasta', 'rigatoni pasta', 'marinara sauce', 'white rice']
     items.each do |i|
         item = Item.new
         item.generic_name = i
         item.name = Faker::Company.name + ' ' + i
         # because shelf life is totally random...
-       	item.est_shelf_life = rand(7..300)
+       item.est_shelf_life = rand(7..300)
          # randomly select a storage area. why not put canned peas in the fridge?
          # sampling the storage locations list will return a two item array with the human-readable
          # and machine friendly versions of the storage location's name. we want the second item in the array (index = 1)
         item.storage_location = Item::STORAGE_LOCATIONS_LIST.sample[1]
         item.save!
     end
-
-# pulled from database
 
 require 'csv'
 csv_file_path = 'lib/items.csv'

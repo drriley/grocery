@@ -1,0 +1,91 @@
+Generic Name,Name,Food Group,Location
+Butter,"Butter, salted",Dairy,Fridge
+Butter,"Butter, whipped, with salt",Dairy,Fridge
+Butter,"Butter oil, anhydrous",Dairy,Fridge
+Cheese,"Cheese, blue",Dairy,Fridge
+Cheese,"Cheese, brick",Dairy,Fridge
+Cheese,"Cheese, brie",Dairy,Fridge
+Cheese,"Cheese, camembert",Dairy,Fridge
+Cheese,"Cheese, caraway",Dairy,Fridge
+Cheese,"Cheese, cheddar",Dairy,Fridge
+Milk,"Milk, chocolate, fluid, commercial, lowfat, with added vitamin A and vitamin D",Dairy,Fridge
+Milk,"Milk, chocolate beverage, hot cocoa, homemade",Dairy,Fridge
+Milk,"Milk shakes, thick vanilla",Dairy,Fridge
+Yogurt,"Yogurt, vanilla flavor, lowfat milk, sweetened with low calorie sweetener",Dairy,Fridge
+Yogurt,"Yogurt, frozen, flavors not chocolate, nonfat milk, with low-calorie sweetener",Dairy,Fridge
+Ice-cream,"Ice cream, soft serve, chocolate",Dairy,Freezer
+Ice-cream,"Ice cream, bar or stick, chocolate covered",Dairy,Freezer
+Ice-cream,Ice cream sandwich,Dairy,Freezer
+Ice-cream,Ice cream cookie sandwich,Dairy,Freezer
+Ice-cream,"Ice cream cone, chocolate covered, with nuts, flavors other than chocolate",Dairy,Freezer
+Spice,"Spices, bay leaf",Spices and Herbs,Pantry
+Spice,"Spices, caraway seed",Spices and Herbs,Pantry
+Spice,"Spices, cardamom",Spices and Herbs,Pantry
+Spice,"Spices, celery seed",Spices and Herbs,Pantry
+Vinegar,"Vinegar, distilled",Spices and Herbs,Pantry
+Horseradish,"Horseradish, prepared",Spices and Herbs,Pantry
+Rosemary,"Rosemary, fresh",Spices and Herbs,Pantry
+Pepperiment,"Peppermint, fresh",Spices and Herbs,Pantry
+Spearmint,"Spearmint, fresh",Spices and Herbs,Pantry
+Vinegar,"Vinegar, red wine",Spices and Herbs,Pantry
+Vinegar,"Vinegar, balsamic",Spices and Herbs,Pantry
+Oil,"Oil, teaseed",Fats and Oils,Pantry
+Oil,"Oil, grapeseed",Fats and Oils,Pantry
+Oil,"Oil, corn, industrial and retail, all purpose salad or cooking",Fats and Oils,Pantry
+Oil,"Oil, soybean lecithin",Fats and Oils,Pantry
+Oil,"Oil, hazelnut",Fats and Oils,Pantry
+Oil,"Oil, babassu",Fats and Oils,Pantry
+Chicken,"Chicken, broilers or fryers, wing, meat only, cooked, roasted",Meat,Fridge
+Chicken,"Chicken, broilers or fryers, wing, meat only, cooked, stewed",Meat,Fridge
+Chicken,"Chicken, roasting, meat and skin and giblets and neck, raw",Meat,Fridge
+Chicken,"Chicken, roasting, meat and skin and giblets and neck, cooked, roasted",Meat,Fridge
+Chicken,"Chicken, roasting, meat and skin, cooked, roasted",Meat,Fridge
+Chicken,"Chicken, roasting, meat only, raw",Meat,Fridge
+Chicken,"Chicken, roasting, meat only, cooked, roasted",Meat,Fridge
+Chicken,"Chicken, stewing, meat and skin, raw",Meat,Fridge
+Soup,"CAMPBELL'S Red and White, Chicken NOODLEO's Soup, condensed",Meat,Pantry
+Soup,"CAMPBELL'S Red and White, Chicken Vegetable Soup, condensed",Meat,Pantry
+Soup,"CAMPBELL'S Red and White, Beef Broth, condensed",Meat,Pantry
+Seasoning,"Soup, onion, dry, mix",Meat,Pantry
+Soup,"CAMPBELL'S Red and White, Beef Consomme, condensed",Vegetable,Pantry
+Ostrich,"Ostrich, inside leg, cooked",Meat,Fridge
+Ostrich,"Ostrich, inside strip, raw",Meat,Fridge
+Turkey,"Ground Turkey, fat free, raw",Meat,Fridge
+Turkey,"Ground turkey, fat free, pan-broiled crumbles",Meat,Fridge
+Turkey,"Ground turkey, fat free, patties, broiled",Meat,Fridge
+Cereal,"Cereals, CREAM OF WHEAT, instant, dry",Grain,Pantry
+Cereal,"Cereals, CREAM OF WHEAT, instant, prepared with water, without salt",Grain,Pantry
+Cereal,"Cereals, MALTEX, cooked with water, without salt",Grain,Pantry
+Cereal,"Cereals, MALT-O-MEAL, plain, dry",Grain,Pantry
+Cereal,"Cereals, MAYPO, dry",Grain,Pantry
+Cereal,"Cereals, QUAKER, Instant Oatmeal, apples and cinnamon, dry",Grain,Pantry
+Bologna,"Bologna, beef",Meat,Fridge
+Bologna,"Bologna, beef and pork",Meat,Fridge
+Ham,"Ham, chopped, not canned",Meat,Fridge
+Ham,"Ham, sliced, prepackaged (96% fat free, water added)",Meat,Fridge
+Ham,"Ham, sliced, regular (approximately 11% fat)",Meat,Fridge
+Apple,"Apples, raw, without skin",Fruit,Fridge
+Apple,"Apples, raw, without skin, cooked, boiled",Fruit,Fridge
+Apple Juice,"Apple juice, canned or bottled, unsweetened, without added ascorbic acid",Drink,Fridge
+Apple Juice,"Apple juice, frozen concentrate, unsweetened, undiluted, without added ascorbic acid",Drink,Fridge
+Apple Juice,"Apple juice, frozen concentrate, unsweetened, diluted with 3 volume water without added ascorbic acid",Drink,Fridge
+Bean,"Beans, snap, green variety, canned, regular pack, solids and liquids",Vegetable,Fridge
+Bean,"Beans, snap, green, canned, regular pack, drained solids",Vegetable,Fridge
+Bean,"Beans, snap, green, microwaved",Vegetable,Fridge
+Beets,"Beets, raw",Vegetable,Fridge
+Beets,"Beets, cooked, boiled, drained",Vegetable,Fridge
+Beets,"Beets, canned, regular pack, solids and liquids",Vegetable,Fridge
+Beets,"Beets, canned, drained solids",Vegetable,Fridge
+Beets,"Beet greens, raw",Vegetable,Fridge
+Peas,"Peas, edible-podded, raw",Vegetable,Fridge
+Peas,"Peas, edible-podded, boiled, drained, without salt",Vegetable,Fridge
+Peas,"Peas, mature seeds, sprouted, cooked, boiled, drained, without salt",Vegetable,Fridge
+Peas,"Peas and carrots, canned, regular pack, solids and liquids",Vegetable,Fridge
+Peppers,"Peppers, sweet, green, cooked, boiled, drained, without salt",Vegetable,Fridge
+Peppers,"Peppers, sweet, green, canned, solids and liquids",Vegetable,Fridge
+Chocolate Bar,Newmans Own Organics 54% Cocoa Dark Chocolate - 12 Bars (3.25 oz ea),Sweet,Pantry
+Granola Bar,Natures Path Organic Flax Plus Chewy Granola Bars - Pumpkin - 6 Boxes (7 oz),Snack,Pantry
+Rice,Near East Rice Pilaf Mix - Roasted Chicken and Garlic - 12 Boxes (6.3 oz ea),Grain,Pantry
+Potato Latake,Manischewitz Homestyle Potato Latke Mix - 6 Boxes (6 oz ea),Grain,Pantry
+Mac Cheese,Back to Nature Shells and Cheddar Dinner - 12 Boxes (6 oz ea),Grain,Pantry
+Peanut Butter,Back to Nature Shells and Cheddar Dinner - 12 Boxes (6 oz ea),Fats and Oils,Pantry
