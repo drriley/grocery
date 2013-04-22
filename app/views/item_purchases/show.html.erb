@@ -3,30 +3,36 @@
 		Back
 	</a>
 	<h1 class="page-title">
-		Item Details
+		<%= @item.item.generic_name%> Details
 	</h1>
 </div>
 
 <table>
 	<tr>
 		<th>Last purchased</th>
-		<td>[placeholder]</td>
+		<td><%= @item.purchase.date.to_date %></td>
 	</tr>
 	<tr>
 		<th>Quantity</th>
-		<td>[placeholder]</td>
+		<td><%= @item.quantity %><%= @item.unit %></td>
 	</tr>
 	<tr>
 		<th>Store</th>
-		<td>[placeholder]</td>
+		<td><%= @item.item_store.store.name%></td>
 	</tr>
 	<tr>
 		<th>Price</th>
-		<td>[placeholder]</th>
+		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
+	</tr>
+	<tr>
+		<th>Status (testing purposes)</th>
+		<td><%= @item.status %></th>
 	</tr>
 </table>
 
-<a href='#'>Add to my shopping list.</a>
+<td><%= link_to raw("Add to Shopping List"), new_shopping_list_item_path(:customer_id => @item.purchase.customer_id, :item_id => @item.item.id, :from => "almost_out"), :class => 'button', :id => 'Add to Shopping List' %></td>
+
+
 
 <div class="item_status">
 	<%# loop over model statuses here and highlight the one that is the current status for this item. these should also be special links that update the status when clicked (like the task check off buttons in the 272 chores app example) %>

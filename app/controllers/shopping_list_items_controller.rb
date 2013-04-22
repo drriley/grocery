@@ -31,7 +31,7 @@ class ShoppingListItemsController < ApplicationController
     if @shopping_list_item.save
       # if saved to database
       flash[:notice] = "Successfully created #{@shopping_list_item.item.name}."
-      redirect_to @shopping_list_item # go to show shopping_list_item page
+      redirect_to shopping_list_items_url
     else
       # return to the 'new' form
       render :action => 'new'
@@ -43,7 +43,7 @@ class ShoppingListItemsController < ApplicationController
     authorize! :update, @shopping_list_item
     if @shopping_list_item.update_attributes(params[:shopping_list_item])
       flash[:notice] = "Successfully updated #{@shopping_list_item.item.name}."
-      redirect_to @shopping_list_item
+      redirect_to shopping_list_items_url
     else
       render :action => 'edit'
     end

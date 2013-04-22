@@ -1,4 +1,4 @@
-<%= simple_form_for @item %>
+<%= simple_form_for @item do |f| %>
 	<%= f.input :name %>
 	<%# these fields are really creating an associated item purchase model. to make them work, you'll need to work with the model file and the nested form gem, most likely %>
 	<%# f.input :amount %>
