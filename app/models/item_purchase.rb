@@ -69,6 +69,7 @@ class ItemPurchase < ActiveRecord::Base
     def name
     	self.item.name
     end
+    
 
     # def self.get_market_share(store_id, start_date, end_date)
     #   market_share = {}

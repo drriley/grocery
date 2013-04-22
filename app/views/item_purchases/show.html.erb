@@ -3,13 +3,18 @@
 		<%= link_to "back", item_purchases_path %>
 	</a>
 	<h1 class="page-title">
+<<<<<<< HEAD
 		<%=@itemname.name %>
+=======
+		<%= @item.item.generic_name%> Details
+>>>>>>> b1f8fe8a78998165432552f835747946e8b699c0
 	</h1>
 </div>
 
 <table>
 	<tr>
 		<th>Last purchased</th>
+<<<<<<< HEAD
 		<td> <%=@item.purchase.date %></td>
 	</tr>
 	<tr>
@@ -26,6 +31,30 @@
 	</tr>
 </table>
 
+=======
+		<td><%= @item.purchase.date.to_date %></td>
+	</tr>
+	<tr>
+		<th>Quantity</th>
+		<td><%= @item.quantity %><%= @item.unit %></td>
+	</tr>
+	<tr>
+		<th>Store</th>
+		<td><%= @item.item_store.store.name%></td>
+	</tr>
+	<tr>
+		<th>Price</th>
+		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
+	</tr>
+	<tr>
+		<th>Status (testing purposes)</th>
+		<td><%= @item.status %></th>
+	</tr>
+</table>
+
+<td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}}, :method => :post, :class => 'button'%></td>
+
+>>>>>>> b1f8fe8a78998165432552f835747946e8b699c0
 
 
 <div class="item_status">

@@ -37,6 +37,7 @@ class ItemPurchasesController < ApplicationController
 
 	end # end index
 
+<<<<<<< HEAD
 #show for item purchase
   def show
     
@@ -57,6 +58,17 @@ class ItemPurchasesController < ApplicationController
 
 
 
+=======
+	
+	def show
+    @item = ItemPurchase.find(params[:id])
+    def change_status(int)
+      @item.update_attribute(:status, int)
+      flash[:notice] = "Successfully updated #{@item.item.name} status to #{int}."
+    end
+  end
+
+>>>>>>> b1f8fe8a78998165432552f835747946e8b699c0
   # test url for output: http://localhost:3000/item_purchases/company_intel?company_id=29&start_date='1/9/1990'&end_date='2/3/2013'
   def company_intel
     company_id = params[:company_id]
