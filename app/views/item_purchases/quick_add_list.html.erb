@@ -11,7 +11,7 @@
 			<tr class="<%=  %>">
 				<td><%= item_purchase.name %></td>
 
-				<td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @current_user.customer_id, :item_id => item_purchase.item.id}}, :method => :post, :class => 'button'%>
+				<td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @current_user.customer_id, :item_id => item_purchase.item.id}}, :method => :post, :class => 'button'%></td>
 			</tr>
 		<% end %>
 		</tbody>

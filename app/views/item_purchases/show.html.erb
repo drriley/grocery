@@ -30,7 +30,7 @@
 	</tr>
 </table>
 
-<td><%= link_to raw("Add to Shopping List"), new_shopping_list_item_path(:customer_id => @item.purchase.customer_id, :item_id => @item.item.id, :from => "almost_out"), :class => 'button', :id => 'Add to Shopping List' %></td>
+<td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}}, :method => :post, :class => 'button'%></td>
 
 
 
