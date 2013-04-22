@@ -13,7 +13,8 @@
 <div class = "content">
 	<ul class="list">
 		<% @items.each do |item_purchase| %>
-	 		 <li><%= item_purchase.name %> <span class="count"><%= item_purchase.status_to_s %></span></li>
+	 		 <li><%= link_to item_purchase.name, item_purchase_path(item_purchase) %> <span class="count"><%= item_purchase.status_to_s %></span></li>
 		<% end %>
 	</ul>
 </div>
+

@@ -37,6 +37,26 @@ class ItemPurchasesController < ApplicationController
 
 	end # end index
 
+#show for item purchase
+  def show
+    
+    @item = ItemPurchase.find(params[:id])
+    @store = Store.find(@item.ItemStore.store_id)
+    @itemname = Item.find(@item.ItemStore.item_id)
+    
+       respond_to do |format|
+         format.html  show.html.erb
+         format.json { render json: @item }
+       end
+    
+  end
+
+
+
+
+
+
+
   # test url for output: http://localhost:3000/item_purchases/company_intel?company_id=29&start_date='1/9/1990'&end_date='2/3/2013'
   def company_intel
     company_id = params[:company_id]
@@ -49,6 +69,12 @@ class ItemPurchasesController < ApplicationController
       format.json
     end
   end
+
+
+
+
+
+
 
 
 end # end controller
