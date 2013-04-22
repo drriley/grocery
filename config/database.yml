@@ -15,11 +15,8 @@ test: &TEST
   host: localhost
   database: greenbean_test
   pool: 5
-<<<<<<< HEAD
+
   username:
-=======
-  username: 
->>>>>>> b1f8fe8a78998165432552f835747946e8b699c0
   password: 
     
 production:
@@ -27,13 +24,8 @@ production:
   encoding: utf8
   database: greenbean_production
   pool: 5
-<<<<<<< HEAD
   username:
   password:
-=======
-  username: 
-  password: 
->>>>>>> b1f8fe8a78998165432552f835747946e8b699c0
 
 cucumber:
   <<: *TEST
