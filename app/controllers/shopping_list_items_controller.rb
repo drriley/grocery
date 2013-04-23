@@ -22,11 +22,6 @@ class ShoppingListItemsController < ApplicationController
     end
   end
 
-
-
-
-
-
   def edit
     @shopping_list_item = ShoppingListItem.find(params[:id])
   end
@@ -36,7 +31,11 @@ class ShoppingListItemsController < ApplicationController
     if @shopping_list_item.save
       # if saved to database
       flash[:notice] = "Successfully created #{@shopping_list_item.item.name}."
-      redirect_to shopping_list_items_url
+      if params[:from].nil?
+        redirect_to shopping_list_items_url
+      else
+        redirect_to :back
+      end
     else
       # return to the 'new' form
       render :action => 'new'
