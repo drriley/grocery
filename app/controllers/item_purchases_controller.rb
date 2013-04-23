@@ -49,6 +49,16 @@ class ItemPurchasesController < ApplicationController
       flash[:notice] = "Successfully updated #{@item.item.name} status to #{int}."
     end
   end
+  
+  def update
+    @item = ItemPurchase.find(params[:id])
+    if params[:from] == 'item_show'
+      @item.status = params[:status]
+      @item.save
+    end
+    flash[:notice] = "Successfully updated #{@item.name}."
+    redirect_to :back
+  end
 
   # test url for output: http://localhost:3000/item_purchases/company_intel?company_id=29&start_date='1/9/1990'&end_date='2/3/2013'
   def company_intel

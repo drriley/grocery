@@ -1,41 +1,42 @@
 <div class="top-navbar">
 	<a class="navcell-1 left" href="#">
-		<%= link_to "back", item_purchases_path %>
+		Back
 	</a>
 	<h1 class="page-title">
-
-		<%=@itemname.name %>
-
 		<%= @item.item.generic_name%> Details
-
 	</h1>
 </div>
 
 <table>
 	<tr>
 		<th>Last purchased</th>
-
-		<td> <%=@item.purchase.date.to_date %></td>
+		<td><%= @item.purchase.date.to_date %></td>
 	</tr>
 	<tr>
 		<th>Quantity</th>
-		<td><%=@item.quantity %> <%= @item.unit %></td>
+		<td><%= @item.quantity %><%= @item.unit %></td>
 	</tr>
 	<tr>
 		<th>Store</th>
-		<td><%= @store.name %></td>
+		<td><%= @item.item_store.store.name%></td>
 	</tr>
 	<tr>
 		<th>Price</th>
-		<td>$ <%=@item.price_per_unit %> / <%= @item.unit %></th>
+		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
 	</tr>
-	
 	<tr>
 		<th>Status (testing purposes)</th>
 		<td><%= @item.status %></th>
 	</tr>
 </table>
 
+<td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
+
+<td><%= link_to raw("Running Low"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
+
+<td><%= link_to raw("Still Have Some"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 2}, :method => :put, :class => 'button'%></td>
+
+<td><%= link_to raw("Just Bought It"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 3}, :method => :put, :class => 'button'%></td>
 
 <td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}}, :method => :post, :class => 'button'%></td>
 
