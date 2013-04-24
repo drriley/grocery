@@ -81,6 +81,7 @@ namespace :db do
         }
     end
 
+
  #add some items
      #items' attrs: :est_shelf_life, :generic_name, :name, :storage_location
     items = ['apples', 'steak', 'pita chips', 'potatoes', 'whole wheat crackers', 'peanut butter', 'canned peas', 'frozen mixed vegetables', 'yogurt', 'wheat flakes cereal', 'clementines', 'canned tuna', 'salmon', 'clementines', 'pineapple', 'popcorn', 'potato chips', 'red potatoes', 'macaroni and cheese', 'linguine pasta', 'rigatoni pasta', 'marinara sauce', 'white rice']
@@ -97,22 +98,20 @@ namespace :db do
         item.save!
     end
 
-# pulled from database
+    # pulled from database
 
-require 'csv'
-csv_file_path = 'lib/items.csv'
+    require 'csv'
+    csv_file_path = 'lib/items.csv'
 
-CSV.foreach(csv_file_path, headers: true) do |row|
-	row = Item.create!({
-		:name => row[0],
-		:generic_name => row[1],
-		:storage_location => row[3]
-	})
-end
+    CSV.foreach(csv_file_path, headers: true) do |row|
+    	row = Item.create!({
+    		:name => row[0],
+    		:generic_name => row[1],
+    		:storage_location => row[3]
+    	})
+    end
 
-                                                                                                                                                    
-
-
+                                                                                                                                                 
 
     # create item_stores (basically item stock records)
     # item_store attrs: :item_id, :store_id

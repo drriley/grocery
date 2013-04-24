@@ -8,6 +8,7 @@
 <%= render :partial => 'partials/tab_nav' %>
 
 <div class = "content">
+	<% unless @items.length == 0 || @items.nil? %>
 	<ul class="list">
 		<% @items.each do |item_purchase| %>
 
@@ -17,5 +18,7 @@
 
 		<% end %>
 	</ul>
+	<% else %>
+		<%= render :partial => 'empty_area_message', :locals => {} %>
+	<% end %>
 </div>
-

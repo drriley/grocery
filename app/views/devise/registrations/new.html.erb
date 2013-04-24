@@ -1,18 +1,31 @@
-<h2>Sign up</h2>
+<header class="bar-title">
+  <h1 class="title">Sign up</h1>
+</header>
+
+<div class="content">
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+<form>
+  <div class="input-group">
+    <div class="input-row">
+      <label>Email</label><%= f.email_field :email, :autofocus => true %>
+  	</div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+	<div class="input-row">
+      <label>Password</label><%= f.password_field :password %>
+  	</div>
+  
+	<div class="input-row">
+      <label>Password confirmation</label><%= f.password_field :password_confirmation %>
+  	</div>
+  </div>
+  	<div id = "submission"><%= f.submit "Sign up" %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+</form>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>

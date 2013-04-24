@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-	attr_accessible :est_shelf_life, :generic_name, :name, :storage_location
+	attr_accessible :est_shelf_life, :generic_name, :name, :storage_location, :category
 	
 	# Constants
   	STORAGE_LOCATIONS_LIST = [['Fridge', 'fridge'],['Freezer', 'freezer'],['Pantry', 'pantry']]
