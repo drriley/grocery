@@ -83,6 +83,7 @@ namespace :db do
 
     # add some items
     # items' attrs: :est_shelf_life, :generic_name, :name, :storage_location
+
     items = ['apples', 'steak', 'pita chips', 'potatoes', 'whole wheat crackers', 'peanut butter', 'canned peas', 'frozen mixed vegetables', 'yogurt', 'wheat flakes cereal', 'clementines', 'canned tuna', 'salmon', 'clementines', 'pineapple', 'popcorn', 'potato chips', 'red potatoes', 'macaroni and cheese', 'linguine pasta', 'rigatoni pasta', 'marinara sauce', 'white rice']
     items.each do |i|
         item = Item.new
