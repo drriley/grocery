@@ -12,8 +12,8 @@ class ItemPurchase < ActiveRecord::Base
     # Constants
     STATUSES = { 3 => 'just_bought_it', 
     			 2 => 'still_have_some',
-    			 1 => 'running_low', 
-    			 0 => 'almost_out' }
+    			 1 => 'almost_out', 
+    			 0 => 'all_gone' }
 
 
 	# Relationships
