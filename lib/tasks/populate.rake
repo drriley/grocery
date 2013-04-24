@@ -41,7 +41,7 @@ namespace :db do
       store.save!
     end
 
-    # crate users
+    # create users
     30.times {
         user = User.new
         user.email = Faker::Internet.email
