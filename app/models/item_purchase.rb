@@ -6,7 +6,7 @@ class ItemPurchase < ActiveRecord::Base
   before_create :set_default_item_location
 	# callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
   # changed from after_update to before_save
-  before_save :record_location_change
+  before_update :record_location_change
 	
 	
     # Constants
@@ -112,7 +112,7 @@ class ItemPurchase < ActiveRecord::Base
     
     # only changes if locaiton is differnt
     def record_location_change
-      if self.actual_storage_location != self.item.storage_location
+      if (self.actual_storage_location != self.item.storage_location)
     	  self.update_attribute(:location_overridden, true)
   	  end
     end
