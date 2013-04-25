@@ -11,14 +11,19 @@
 	</a> -->
 </header>
 
-<div class="content store-accounts-list">
+<div class="content memberships-list">
 	<div class="padded-content">
 	  <h2>Store Accounts</h2>
 	  <ul class="list inset">
-	  
+	  	<% @customer.memberships.each do |membership|%>
+	  	<li><%= membership.company_name %> <span><%= membership.loyalty_id %></li>
+	  	<% end %>
+	  	<li><a href='#'>Add Account...</a></li>
 	  </ul>
 	  <h2>App Settings</h2>
 	  <ul class="list inset">
+	  	<li>Notifications</li>
+	  	<li>My Information</li>
 	  </ul>
 	</div>
 </div>

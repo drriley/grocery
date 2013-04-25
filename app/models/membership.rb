@@ -5,5 +5,9 @@ class Membership < ActiveRecord::Base
   belongs_to :company
   
   validates_presence_of :company, :customer
+
+  def company_name
+  	return Company.find(self.company_id).name
+  end
   
 end

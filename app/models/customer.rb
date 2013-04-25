@@ -21,6 +21,10 @@ class Customer < ActiveRecord::Base
   def proper_name
     "#{first_name} #{last_name}"
   end
+
+  def memberships
+    return Membership.where('customer_id = ?', id)
+  end
  
  #### TODO: need to figure out the parameter diff between allow_blank and validates_presence_of
  

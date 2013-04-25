@@ -4,6 +4,6 @@ class CustomersController < ApplicationController
 	end
 
 	def show
-		@customer = Customer.for_user(current_user.id)
+		@customer = Customer.for_user(current_user.id).first
 	end
 end
