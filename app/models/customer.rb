@@ -11,6 +11,7 @@ class Customer < ActiveRecord::Base
   scope :alphabetical, order('last_name, first_name')
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)
+  scope :for_user, lambda{|user_id| where('user_id = ?', user_id)}
   
   # Other methods
   def name
