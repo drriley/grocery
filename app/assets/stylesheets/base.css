@@ -107,6 +107,12 @@ body {
   font-size: 14px;
 }
 
+p
+.empty-list-message{
+  color: #D02200; 
+  font-size: 14px;
+}
+
 /* Universal link styling */
 a {
   color: #0882f0;

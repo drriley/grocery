@@ -31,6 +31,17 @@ class User < ActiveRecord::Base
 		return Customer.where('user_id = ?', self.id).first.id
 	end
 
+	def customer
+		return Customer.where('user_id = ?', self.id).first
+	end
+
+
+	def first_name
+		full_name = Customer.find(self.customer_id).proper_name
+		first_name = full_name.split(' ')[0]
+		return first_name
+	end
+
 
 	# Callback Methods
 

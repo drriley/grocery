@@ -82,7 +82,7 @@ namespace :db do
     end
 
 
- #add some items
+    #add some items
      #items' attrs: :est_shelf_life, :generic_name, :name, :storage_location
     items = ['apples', 'steak', 'pita chips', 'potatoes', 'whole wheat crackers', 'peanut butter', 'canned peas', 'frozen mixed vegetables', 'yogurt', 'wheat flakes cereal', 'clementines', 'canned tuna', 'salmon', 'clementines', 'pineapple', 'popcorn', 'potato chips', 'red potatoes', 'macaroni and cheese', 'linguine pasta', 'rigatoni pasta', 'marinara sauce', 'white rice']
     items.each do |i|
@@ -114,13 +114,17 @@ namespace :db do
                                                                                                                                                  
 
     # create item_stores (basically item stock records)
+    # in this case, all stores will have all items in stock
     # item_store attrs: :item_id, :store_id
-    10.times {
-        item_store = ItemStore.new
-        item_store.item_id = Item.all.sample.id
-        item_store.store_id = Store.all.sample.id
-        item_store.save!
-    }
+    stores = Store.all
+    Item.all.each do |item|
+        stores.each do |store|
+            item_store = ItemStore.new
+            item_store.item_id = item.id
+            item_store.store_id = store.id
+            item_store.save!
+        end
+    end
 
 
     # create some purchases
@@ -136,7 +140,7 @@ namespace :db do
     # item_purchases' attrs: :_id, :item_store_id, :price_per_unit, :purchase_id, :quantity, :status, :unit
     Purchase.all.each do |purchase|
         num_items = rand(1..30)
-        num_items.times {
+        num_items.times do |i|
             item_purchase = ItemPurchase.new
             item_purchase.item_store_id = ItemStore.all.sample.id
             item_purchase.price_per_unit = rand(1..7)
@@ -145,7 +149,7 @@ namespace :db do
             item_purchase.unit = ['lb', 'bag', 'box', 'oz'].sample
             item_purchase.status = ItemPurchase::STATUSES.keys.sample
             item_purchase.save!
-        }
+        end
     end
 
     # create shopping_list_items
