@@ -28,7 +28,7 @@ namespace :db do
 
     # add some stores. 
     # stores' attributes: :name, :company_id, :phone, :store_number, :street, :zip
-    stores = ['Giant Eagle Squirrel Hill', 'Giant Eagle Market District', 'Giant Eagle East Liberty', 'Giant Eagle Waterfront']
+    stores = ['Giant Eagle Squirrel Hill', 'Giant Eagle Market District', 'Giant Eagle East Liberty', 'Giant Eagle Waterfront', 'Unknown']
     stores.each do |s|
       store = Store.new
       store.name = s

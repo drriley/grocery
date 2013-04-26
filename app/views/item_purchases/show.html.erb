@@ -30,14 +30,14 @@
 	</tr>
 </table>
 
-<td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
+<td><%= link_to raw("All Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
 
-<td><%= link_to raw("Running Low"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
+<td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
 
 <td><%= link_to raw("Still Have Some"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 2}, :method => :put, :class => 'button'%></td>
 
 <td><%= link_to raw("Just Bought It"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 3}, :method => :put, :class => 'button'%></td>
-
+<br><br>
 <td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button'%></td>
 
 

@@ -9,7 +9,7 @@
 		<% unless @shopping_list_items.nil? %>
 		<ul>
 		 <% @shopping_list_items.each do |item| %>
-		 	<li><%= item.name %></li>
+		 	<li><a href="#" class='test' id= '<%= item.item.id%>' onClick= 'putItemInCart(<%= item.item.id %>)'><%= item.name %></a></li>
 		 <% end %>
 		</ul>
 		<% else %>
