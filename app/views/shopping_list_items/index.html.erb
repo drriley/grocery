@@ -10,7 +10,7 @@
 		<% unless @shopping_list_items.nil? %>
 		<ul>
 		 <% @shopping_list_items.each do |item| %>
-		 	<li><a href="#" class='test' id= '<%= item.item.id%>' onClick= 'putItemInCart(<%= item.item.id %>)'><%= item.name %></a></li>
+		  <li><%= link_to item.item.name, {:controller=>"item_purchases", :action=>"create", :id => item.id, :item_store_id => item.item.id, :actual_storage_location => item.item.storage_location, :customer_id => item.customer_id, :from => 'shoppinglist'}, :method => :post%></li>
 		 <% end %>
 		</ul>
 		<% else %>
@@ -20,3 +20,4 @@
 
 </div>
 <%= render :partial => 'partials/tab_nav' %>
+

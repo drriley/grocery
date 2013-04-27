@@ -3,7 +3,7 @@ class ShoppingListItemsController < ApplicationController
   before_filter :authenticate_user!
 	
   def index
-	  @shopping_list_items = ShoppingListItem.all
+	  @shopping_list_items = ShoppingListItem.for_customer(current_user.customer_id)
   end
 
   def new

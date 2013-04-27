@@ -6,7 +6,7 @@ class ItemPurchase < ActiveRecord::Base
   before_create :set_default_item_location
 	# callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
   # changed from after_update to before_save
-  before_update :record_location_change
+  # before_update :record_location_change
 	
 	
     # Constants
@@ -22,11 +22,11 @@ class ItemPurchase < ActiveRecord::Base
 	has_one :item, :through => :item_store
 
     # Validations
-    validates_presence_of :quantity
-    validates_presence_of :unit          
-    validates_presence_of :price_per_unit
-    validates_presence_of :status
-	validates_numericality_of :quantity, :greater_than => 0
+  #     validates_presence_of :quantity
+  #     validates_presence_of :unit          
+  #     validates_presence_of :price_per_unit
+  #     validates_presence_of :status
+  # validates_numericality_of :quantity, :greater_than => 0
 	
 
 	# Scopes
