@@ -1,33 +1,35 @@
-Generic Name,Name,Food Group,Location
-Butter,"Butter, salted",Dairy,Fridge
-Cheese,"Cheese, blue",Dairy,Fridge
-Milk,"Milk shakes, thick vanilla",Dairy,Fridge
-Yogurt,"Yogurt, vanilla flavor, lowfat milk, sweetened with low calorie sweetener",Dairy,Fridge
-Ice-cream,"Ice cream cone, chocolate covered, with nuts, flavors other than chocolate",Dairy,Freezer
-Spice,"Spices, bay leaf",Spices and Herbs,Pantry
-Vinegar,"Vinegar, distilled",Spices and Herbs,Pantry
-Horseradish,"Horseradish, prepared",Spices and Herbs,Pantry
-Rosemary,"Rosemary, fresh",Spices and Herbs,Pantry
-Pepperiment,"Peppermint, fresh",Spices and Herbs,Pantry
-Spearmint,"Spearmint, fresh",Spices and Herbs,Pantry
-Vinegar,"Vinegar, red wine",Spices and Herbs,Pantry
-Oil,"Oil, babassu",Fats and Oils,Pantry
-Chicken,"Chicken, broilers or fryers, wing, meat only, cooked, roasted",Meat,Fridge
-Soup,"CAMPBELL'S Red and White, Beef Broth, condensed",Meat,Pantry
-Seasoning,"Soup, onion, dry, mix",Meat,Pantry
-Ostrich,"Ostrich, inside strip, raw",Meat,Fridge
-Turkey,"Ground turkey, fat free, patties, broiled",Meat,Fridge
-Cereal,"Cereals, CREAM OF WHEAT, instant, dry",Grain,Pantry
-Bologna,"Bologna, beef and pork",Meat,Fridge
-Ham,"Ham, chopped, not canned",Meat,Fridge
-Apple Juice,"Apple juice, frozen concentrate, unsweetened, diluted with 3 volume water without added ascorbic acid",Drink,Fridge
-Bean,"Beans, snap, green variety, canned, regular pack, solids and liquids",Vegetable,Fridge
-Beets,"Beet greens, raw",Vegetable,Fridge
-Peas,"Peas, edible-podded, raw",Vegetable,Fridge
-Peppers,"Peppers, sweet, green, canned, solids and liquids",Vegetable,Fridge
-Chocolate Bar,Newmans Own Organics 54% Cocoa Dark Chocolate - 12 Bars (3.25 oz ea),Sweet,Pantry
-Granola Bar,Natures Path Organic Flax Plus Chewy Granola Bars - Pumpkin - 6 Boxes (7 oz),Snack,Pantry
-Rice,Near East Rice Pilaf Mix - Roasted Chicken and Garlic - 12 Boxes (6.3 oz ea),Grain,Pantry
-Potato Latake,Manischewitz Homestyle Potato Latke Mix - 6 Boxes (6 oz ea),Grain,Pantry
-Mac Cheese,Back to Nature Shells and Cheddar Dinner - 12 Boxes (6 oz ea),Grain,Pantry
-Peanut Butter,Back to Nature Shells and Cheddar Dinner - 12 Boxes (6 oz ea),Fats and Oils,Pantry
+Generic Name,Name,Category,Location
+Butter,Land  O’Lakes Salted Butter,Dairy,Fridge
+Cheddar cheese,Kraft Cheddar Cheese Slices,Dairy,Fridge
+Milk,Horizon 2% Milk,Dairy,Fridge
+Vanilla Yogurt,Yoplait Light ‘n Fit Nonfat Vanilla Yogurt,Dairy,Fridge
+Chocolate Ice Cream,Breyer’s Chocolate Ice Cream,Sweets,Freezer
+Sandwich Bread,Wonder Bread Sandwich Bread,Pantry,Pantry
+Vinegar,Alessi Balsalmic Vinegar,Staples & Misc.,Pantry
+Horseradish,Boar’s Head Horseradish,Staples & Misc.,Pantry
+Bananas,Dole Bananas,Fruits and Vegetables,
+Peppermint,365 Dried Peppermint Flakes,Staples & Misc.,Pantry
+Whole Wheat English Muffin,Oroweat 100% Whole Wheat English Muffin,Grain,Pantry
+Cinnamon Toast Crunch,Big G Cereals Cinnamon Toast Crunch,Grain,Pantry
+Olive Oil,Bertolli Extra Virgin Olive Oil,Staples & Misc.,Pantry
+Chicken Breast,Tyson Foods Chicken Breast,Meat,Fridge
+Tomato Soup,Campbell’s Condensed Tomato Soup,Staples & Misc.,Pantry
+Honey Almond Flax Cereal,Kashi Company GoLean Crunch! Honey Almond Flax Cereal,Grain,Pantry
+Three Cheese Tortellini,Buitoni Three Cheese Tortellini,Grain,Freezer
+Turkey Breast,Oscar Mayer Oven Roasted White Turkey,Meat,Freezer
+Raisin Bran Cereal,Kellogg Co. Raisin Bran Cereal,Grain,Pantry
+Bologna,Wegmans Wunderbar German Deli Bologna,Meat,Fridge
+Smoked Ham,Oscar Mayer Deli Style Smoked Ham,Meat,Fridge
+Apple Juice,Mott’s Natural Apple Juice,Beverages,Fridge
+Pinto Beans,Canned Pinto Beans,Fruits and Vegetables,Pantry
+Beets,Whole Food Market Beets,Fruits and Vegetables,Fridge
+Sweet Peas,Green Giant Sweet Peas,Fruits and Vegetables,Fridge
+Green Bell Peppers,Earthbound Farms Green Bell Peppers,Fruits and Vegetables,Fridge
+Dark Chocolate Bar,Dove Dark Chocolate Bar,Sweets,Pantry
+Oats ‘N Honey Crunchy Granola Bars,Nature Valley Oats ‘N Honey Crunchy Granola Bars,Snack,Pantry
+Rice Pilaf: Roasted Almond Flavor,Near East Rice Pilaf: Roasted Almond Flavor,Grain,Pantry
+Whole Wheat Penne Pasta,Hodgson Mill Whole Wheat Penne Pasta,Grain,Pantry
+Macaroni & Cheese,Kraft Macaroni and Cheese,Grain,Pantry
+Peanut Butter,Jiffy Creamy Peanut Butter,Staples & Misc.,Pantry
+Green Beans,Del Monte Green Beans,Fruits and Vegetables,Fridge
+Broccoli Florets,Earthbound Farm Broccoli,Fruits and Vegetables,Fridge
