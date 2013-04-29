@@ -3,7 +3,7 @@ class ShoppingListItemsController < ApplicationController
   before_filter :authenticate_user!
 	
   def index
-	  @shopping_list_items = ShoppingListItem.all
+	  @shopping_list_items = ShoppingListItem.for_customer(current_user.customer_id)
   end
 
   def new
@@ -30,7 +30,7 @@ class ShoppingListItemsController < ApplicationController
     @shopping_list_item = ShoppingListItem.new(params[:shopping_list_item])
     if @shopping_list_item.save
       # if saved to database
-      flash[:notice] = "Successfully created #{@shopping_list_item.item.name}."
+      flash[:notice] = "Successfully #{@shopping_list_item.item.name} to shopping list."
       if params[:from].nil?
         redirect_to shopping_list_items_url
       else

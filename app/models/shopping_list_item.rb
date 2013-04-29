@@ -1,5 +1,5 @@
 class ShoppingListItem < ActiveRecord::Base
-	attr_accessible :item_id, :purchased_yet, :customer_id, :visible_in_list
+	attr_accessible :item_id, :purchased_yet, :customer_id, :visible_in_list, :location, :item
 
 	# Relationships
 	belongs_to :item

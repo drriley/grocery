@@ -4,7 +4,7 @@ Grocery::Application.routes.draw do
 
   # custom routing for competitive intelligence data
   match 'item_purchases/company_intel' => 'item_purchases#company_intel', :defaults=>{:format =>'json'}
-  
+  match 'item_purchases/user_spending' => 'item_purchases#user_spending' 
   resources :item_purchases
   resources :shopping_list_items
 

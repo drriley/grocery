@@ -50,6 +50,36 @@ class ItemPurchasesController < ApplicationController
     end
   end
   
+  
+  def edit
+    @item = ItemPurchase.find(params[:id])
+  end
+
+  def create
+    @item = ItemPurchase.new()
+    @item.purchase_id = Purchase.find(:first, :conditions => ["customer_id = ?", params[:customer_id]]).id
+    @item.item_store_id = ItemStore.find(:first, :conditions => ["item_id = ?", params[:item_store_id]]).id
+    @item.quantity = 1
+    @item.unit = ['lb', 'bag', 'box', 'oz'].sample
+    @item.price_per_unit = rand(1..19)
+    @item.status = 3
+    @item.actual_storage_location = params[:location]
+    if @item.save
+      # if saved to database
+      @shopping_list_item = ShoppingListItem.find(params[:id])
+      @shopping_list_item.destroy
+      flash[:notice] = "Successfully created #{@item.item.name}."
+      if params[:from].nil?
+        redirect_to @item
+      else
+        redirect_to :back
+      end
+    else
+      # return to the 'new' form
+      render :action => 'new'
+    end
+  end
+  
   def update
     @item = ItemPurchase.find(params[:id])
     if params[:from] == 'item_show'
@@ -71,8 +101,21 @@ class ItemPurchasesController < ApplicationController
     respond_to do |format|
       format.json
     end
+    
+  
+    
+    
   end
 
+  def user_spending
+    
+      @pie_graph = Gchart.line(
+                  :theme => :keynote, 
+                  :data => [[0,40,10,70,20],[41,10,80,50,40],[20,60,30,60,80],[5,23,35,10,56],[80,90,5,30,60]], 
+                  :title => 'keynote'
+                  )
+      
+  end
 
 
 

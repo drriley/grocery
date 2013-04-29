@@ -29,22 +29,36 @@
 		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
 	</tr>
 	<tr>
-		<th>Status (testing purposes)</th>
-		<td><%= @item.status %></th>
+		<th>Status</th>
+		<td><%= @item.status_to_s %></th>
 	</tr>
 </table>
 
-<td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
+<td><%= link_to raw("All Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
 
-<td><%= link_to raw("Running Low"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
+<td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
 
 <td><%= link_to raw("Still Have Some"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 2}, :method => :put, :class => 'button'%></td>
 
 <td><%= link_to raw("Just Bought It"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 3}, :method => :put, :class => 'button'%></td>
-
+<br><br>
 <td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button'%></td>
 
+<<<<<<< HEAD
 </div>
+=======
+<% if flash[:notice] %>
+<div class="alert-status">
+	<h3><%= flash[:notice]%></h3>
+</div>
+    <script type="text/javascript">
+
+	$('.alert-status').delay(2500).fadeOut(1600);
+	  
+	</script>
+ <% end %>
+
+>>>>>>> 90d27c56769099c544cf08577ce2929a1da989f9
 
 <div class="item_status">
 	<%# loop over model statuses here and highlight the one that is the current status for this item. these should also be special links that update the status when clicked (like the task check off buttons in the 272 chores app example) %>

@@ -6,14 +6,14 @@ class ItemPurchase < ActiveRecord::Base
   before_create :set_default_item_location
 	# callback to handle setting the storage_location_overridden boolean to be true when the actual_storage_location gets saved/changed
   # changed from after_update to before_save
-  before_update :record_location_change
+  # before_update :record_location_change
 	
 	
     # Constants
     STATUSES = { 3 => 'just_bought_it', 
     			 2 => 'still_have_some',
-    			 1 => 'running_low', 
-    			 0 => 'almost_out' }
+    			 1 => 'almost_out', 
+    			 0 => 'all_gone' }
 
 
 	# Relationships
@@ -22,11 +22,11 @@ class ItemPurchase < ActiveRecord::Base
 	has_one :item, :through => :item_store
 
     # Validations
-    validates_presence_of :quantity
-    validates_presence_of :unit          
-    validates_presence_of :price_per_unit
-    validates_presence_of :status
-	validates_numericality_of :quantity, :greater_than => 0
+  #     validates_presence_of :quantity
+  #     validates_presence_of :unit          
+  #     validates_presence_of :price_per_unit
+  #     validates_presence_of :status
+  # validates_numericality_of :quantity, :greater_than => 0
 	
 
 	# Scopes
@@ -72,37 +72,37 @@ class ItemPurchase < ActiveRecord::Base
     end
     
 
-    # def self.get_market_share(store_id, start_date, end_date)
-    #   market_share = {}
-    #   items = Item.all
-    #   items.each do |item|
-    #     # call helper
-    #     market_share_for_item = ItemPurchase.get_item_market_share(item.id, store_id, start_date, end_date)
-    #     # save market share to hash
-    #     market_share[item.name] = market_share_for_item
-    #   end
-    #   return market_share
-    # end
+     def self.get_market_share(store_id, start_date, end_date)
+       market_share = {}
+       items = Item.all
+       items.each do |item|
+         # call helper
+         market_share_for_item = ItemPurchase.get_item_market_share(item.id, store_id, start_date, end_date)
+         # save market share to hash
+         market_share[item.name] = market_share_for_item
+       end
+       return market_share
+     end
     # 
     # # static (class) method which returns a hash of items mapped to the percent of the items bought at the given store
     # # (TODO - this could be optimized to make fewer database queries)
-    # def self.get_item_market_share(item_id, store_id, start_date, end_date)
-    #   # get all of the item_purchase records in this date range (this is the total)
-    #   all_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).all
-    # 
-    #   # get all the item_purchase records for this store (this is what we'll divide by the total)
-    #   this_store_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).for_store(store_id).all
-    # 
+     def self.get_item_market_share(item_id, store_id, start_date, end_date)
+       # get all of the item_purchase records in this date range (this is the total)
+       all_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).all
+     
+       # get all the item_purchase records for this store (this is what we'll divide by the total)
+       this_store_purchases = ItemPurchase.for_item(item_id).for_date_range(start_date, end_date).for_store(store_id).all
+     
     #   # unless no one bought this item anywhere in this time range
-    #   unless all_purchases.length == 0
-    #     # return the proportion of purchases of this item that were made at this store
-    #     market_share = this_store_purchases.length / all_purchases.length.to_f
-    #     return market_share
-    #   # no purchases made
-    #   else
-    #     return 'None purchased in this time period at any store.'
-    #   end
-    # end
+       unless all_purchases.length == 0
+         # return the proportion of purchases of this item that were made at this store
+         market_share = this_store_purchases.length / all_purchases.length.to_f
+         return market_share
+       # no purchases made
+       else
+         return 'None purchased in this time period at any store.'
+       end
+     end
 
     private
     # these are mostly callback methods

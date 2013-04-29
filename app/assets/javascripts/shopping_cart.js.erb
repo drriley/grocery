@@ -1,0 +1,18 @@
+window.onload = function(){
+  shoppingCart = [];
+};
+
+function putItemInCart(id)
+  {
+    var text = $('#'+id).css("text-decoration");
+    if (text == "line-through") {
+      $('#'+id).css("text-decoration", "none");
+      shoppingCart.pop(id);
+    }
+    else {
+      shoppingCart.push(id);
+      $('#'+id).css("text-decoration", "line-through");
+    }
+    window.alert(shoppingcart);
+  }
+  
