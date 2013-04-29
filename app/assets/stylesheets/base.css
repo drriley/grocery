@@ -108,7 +108,8 @@ body {
 }
 
 p
-.empty-list-message{
+
+#empty-list-message{
   color: #D02200; 
   font-size: 14px;
 }

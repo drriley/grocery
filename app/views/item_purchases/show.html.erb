@@ -1,10 +1,14 @@
-<div class="top-navbar">
+
+	<header class="bar-title">
+		<h1 class="page-title">
+		<%= @item.item.generic_name%> Details </h1>
+</header>
+
+<div class="content">
+	<div class="top-navbar">
 	<a class="navcell-1 left" href="#">
 		Back
 	</a>
-	<h1 class="page-title">
-		<%= @item.item.generic_name%> Details
-	</h1>
 </div>
 
 <table>
@@ -40,7 +44,7 @@
 
 <td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button'%></td>
 
-
+</div>
 
 <div class="item_status">
 	<%# loop over model statuses here and highlight the one that is the current status for this item. these should also be special links that update the status when clicked (like the task check off buttons in the 272 chores app example) %>
