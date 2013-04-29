@@ -78,6 +78,14 @@
   color: inherit;
 }
 
+.bar-title .page-title {
+  font-size: 1.25em;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.25em;
+}
+
 /* Tab bar
 -------------------------------------------------- */
 

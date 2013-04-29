@@ -1,57 +1,46 @@
-<div class="top-navbar">
-	<a class="navcell-1 left" href="#">
+<div class="bar-title">
+	<a class="navcell-1 left button" href="<%= item_purchases_path %>">
 		Back
 	</a>
 	<h1 class="page-title">
-		<%= @item.item.generic_name%> Details
+		<%= @item.item.generic_name.split(' ').map{|word| word.capitalize}.join(' ') %> Details
 	</h1>
+	<a class="right button">Forward!</a>
 </div>
 
-<table>
-	<tr>
-		<th>Last purchased</th>
-		<td><%= @item.purchase.date.to_date %></td>
-	</tr>
-	<tr>
-		<th>Quantity</th>
-		<td><%= @item.quantity %><%= @item.unit %></td>
-	</tr>
-	<tr>
-		<th>Store</th>
-		<td><%= @item.item_store.store.name%></td>
-	</tr>
-	<tr>
-		<th>Price</th>
-		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
-	</tr>
-	<tr>
-		<th>Status</th>
-		<td><%= @item.status_to_s %></th>
-	</tr>
-</table>
+<div class="content">
+	<h2>Recent Purchases</h2>
+	<ul class="list inset">
+		<% @recent_purchases.each do |item_purchase| %>
+			<li>Bought <%= item_purchase.quantity %> <%= item_purchase.unit %> for $<%= item_purchase.price_per_unit %> on <%= item_purchase.purchase.date.to_date.strftime("%m/%d/%Y") %></li>
+		<% end %>
+	</ul>
 
-<td><%= link_to raw("All Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
+	<ul class="segmented-buttons">
+		<li><%= link_to raw("All Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put %></li>
 
-<td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
+		<li><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put %></li>
 
-<td><%= link_to raw("Still Have Some"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 2}, :method => :put, :class => 'button'%></td>
+		<li><%= link_to raw("Still Have Some"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 2}, :method => :put %></li>
 
-<td><%= link_to raw("Just Bought It"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 3}, :method => :put, :class => 'button'%></td>
-<br><br>
-<td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button'%></td>
+		<li><%= link_to raw("Just Bought It"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 3}, :method => :put %></li>
+	</ul>
 
-<% if flash[:notice] %>
-<div class="alert-status">
-	<h3><%= flash[:notice]%></h3>
-</div>
-    <script type="text/javascript">
+	<%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button button-block'%>
 
-	$('.alert-status').delay(2500).fadeOut(1600);
-	  
-	</script>
- <% end %>
+	<% if flash[:notice] %>
+	<div class="alert-status">
+		<h3><%= flash[:notice]%></h3>
+	</div>
+	    <script type="text/javascript">
+
+		$('.alert-status').delay(2500).fadeOut(1600);
+		  
+		</script>
+	 <% end %>
 
 
-<div class="item_status">
-	<%# loop over model statuses here and highlight the one that is the current status for this item. these should also be special links that update the status when clicked (like the task check off buttons in the 272 chores app example) %>
+	<div class="item_status">
+		<%# loop over model statuses here and highlight the one that is the current status for this item. these should also be special links that update the status when clicked (like the task check off buttons in the 272 chores app example) %>
+	</div>
 </div>

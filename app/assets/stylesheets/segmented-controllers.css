@@ -1,7 +1,7 @@
 /* Segmented controllers
 -------------------------------------------------- */
 
-.segmented-controller {
+.segmented-controller, .segmented-buttons {
   display: -webkit-box;
   display: box;
   margin-bottom: 10px;
@@ -20,8 +20,12 @@
           box-orient: horizontal;
 }
 
+.segmented-buttons {
+  padding: 4px 0px;
+}
+
 /* Section within controller */
-.segmented-controller li {
+.segmented-controller li, .segmented-buttons li {
   overflow: hidden;
   text-align: center;
   white-space: nowrap;
@@ -32,7 +36,7 @@
 }
 
 /* Link that fills each section */
-.segmented-controller li > a {
+.segmented-controller li > a, .segmented-buttons li > a {
   display: block;
   padding: 8px 16px;
   overflow: hidden;
@@ -41,8 +45,12 @@
   text-overflow: ellipsis;
 }
 
+.segmented-buttons li > a {
+  padding: 8px 0px;
+}
+
 /* Remove border-left and shadow from first section */
-.segmented-controller li:first-child {
+.segmented-controller li:first-child, .segmented-buttons li:first-child {
   border-left-width: 0;
   box-shadow: none;
 }

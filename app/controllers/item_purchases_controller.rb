@@ -42,6 +42,7 @@ class ItemPurchasesController < ApplicationController
 	
 	def show
     @item = ItemPurchase.find(params[:id])
+    @recent_purchases = ItemPurchase.for_customer(current_user.id).for_item(@item.item.id)
     @store = Store.find(ItemStore.find(@item.item_store_id).store_id)
     @itemname = Item.find(ItemStore.find(@item.item_store_id).item_id)
     def change_status(int)

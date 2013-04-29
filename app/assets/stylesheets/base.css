@@ -135,6 +135,7 @@ a {
   -webkit-transition-timing-function: linear, linear;
           transition-timing-function: linear, linear;
   -webkit-overflow-scrolling: touch;
+  padding: 0.75em 1em 0.5em 1em;
 }
 
 /* Hack to force all relatively and absolutely positioned elements still render while scrolling
