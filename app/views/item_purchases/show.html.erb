@@ -1,39 +1,45 @@
 
 	<header class="bar-title">
 		<h1 class="page-title">
+		<div class="top-navbar">
+			<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button-prev"} %>
 		<%= @item.item.generic_name%> Details </h1>
+
 </header>
 
 <div class="content">
-	<div class="top-navbar">
-	<a class="navcell-1 left" href="#">
-		Back
-	</a>
-</div>
 
-<table>
-	<tr>
-		<th>Last purchased</th>
+
+
+<ul class="list">
+	
+	<li>
+		&nbsp;&nbsp;&nbsp;<th>Last purchased</th> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<td><%= @item.purchase.date.to_date %></td>
-	</tr>
-	<tr>
-		<th>Quantity</th>
-		<td><%= @item.quantity %><%= @item.unit %></td>
-	</tr>
-	<tr>
-		<th>Store</th>
-		<td><%= @item.item_store.store.name%></td>
-	</tr>
-	<tr>
-		<th>Price</th>
-		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
-	</tr>
-	<tr>
-		<th>Status</th>
-		<td><%= @item.status_to_s %></th>
-	</tr>
-</table>
+	</li>
 
+
+	<li>
+		&nbsp;&nbsp;&nbsp;<th>Quantity</th>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<td><%= @item.quantity %><%= @item.unit %></td>
+	</li>
+
+	<li>
+
+		&nbsp;&nbsp;&nbsp;<th>Store</th>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<td><%= @item.item_store.store.name%></td>
+	</li>
+
+	<li>
+		&nbsp;&nbsp;&nbsp;<th>Price</th>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>$<%= @item.price_per_unit %> / <%= @item.unit %></th>
+	</li>
+	<li>
+		&nbsp;&nbsp;&nbsp;<th>Status</th>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<td><%= @item.status_to_s %></th>
+	</il>
+
+</ul>
 <td><%= link_to raw("All Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 0}, :method => :put, :class => 'button'%></td>
 
 <td><%= link_to raw("Almost Out"), {:controller=>"item_purchases", :action=>"update", :id => @item.id, :from => 'item_show', :status => 1}, :method => :put, :class => 'button'%></td>
@@ -44,7 +50,7 @@
 <br><br>
 <td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button'%></td>
 
-<<<<<<< HEAD
+
 </div>
 =======
 <% if flash[:notice] %>
@@ -58,7 +64,6 @@
 	</script>
  <% end %>
 
->>>>>>> 90d27c56769099c544cf08577ce2929a1da989f9
 
 <div class="item_status">
 	<%# loop over model statuses here and highlight the one that is the current status for this item. these should also be special links that update the status when clicked (like the task check off buttons in the 272 chores app example) %>

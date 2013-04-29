@@ -10,7 +10,7 @@ gem 'pg'
 # using heroku toolbelt instead of gem 'heroku'
 gem 'execjs'
 #gem 'therubyracer'
-gem 'mattetti-googlecharts'
+#gem 'mattetti-googlecharts'
 gem "googlecharts", :require => "gchart"
 
 group :development do
