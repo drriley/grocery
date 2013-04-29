@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(:version => 20130417005416) do
     t.string   "name"
     t.string   "generic_name"
     t.string   "storage_location"
-    t.string   "category"
     t.integer  "est_shelf_life"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false

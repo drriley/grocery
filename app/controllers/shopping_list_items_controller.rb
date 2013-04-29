@@ -30,7 +30,7 @@ class ShoppingListItemsController < ApplicationController
     @shopping_list_item = ShoppingListItem.new(params[:shopping_list_item])
     if @shopping_list_item.save
       # if saved to database
-      flash[:notice] = "Successfully created #{@shopping_list_item.item.name}."
+      flash[:notice] = "Successfully #{@shopping_list_item.item.name} to shopping list."
       if params[:from].nil?
         redirect_to shopping_list_items_url
       else

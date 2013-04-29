@@ -40,6 +40,16 @@
 <br><br>
 <td><%= link_to raw("Add to Shopping List"), {:controller=>"shopping_list_items", :action=>"create", :shopping_list_item => {:customer_id => @item.purchase.customer_id, :item_id => @item.item.id}, :from => 'item_show'}, :method => :post, :class => 'button'%></td>
 
+<% if flash[:notice] %>
+<div class="alert-status">
+	<h3><%= flash[:notice]%></h3>
+</div>
+    <script type="text/javascript">
+
+	$('.alert-status').delay(2500).fadeOut(1600);
+	  
+	</script>
+ <% end %>
 
 
 <div class="item_status">

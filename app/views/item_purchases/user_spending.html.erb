@@ -1,0 +1,47 @@
+<div class="bar-title">
+	<%= link_to "Back", item_purchases_path, html_options = {'class' => "navcell-1 left back button-prev"} %>
+	<h1 class="title">
+		Review
+	</h1>
+</div>
+
+<div class= "content">
+	<h2>Review your spending by:</h2>
+	<Button onclick="overTime()"> Over Time</Button>
+	<Button onclick="foodType()">By Food Type</Button>
+	
+
+<div class="overTime">
+	<ul class="list inset">
+	    
+	      <li>1/6-1/12 <span class="count">$63.23</span></li>
+			<li>1/13-1/19<span class="count">$45.64</span></li>
+			<li>1/20-1/26 <span class="count">$33.89</span></li>
+				<li>1/27-2/2<span class="count">$56.12</span></li>
+	    
+	  </ul>
+</div>
+
+<div class="foodType" style="display: none;">
+<%= @pie_graph %>
+
+<%= image_tag("http://chart.apis.google.com/chart?chs=300×200&chd=s:AiI9R&cht=lc") %>
+	
+</div>
+
+ <script type="text/javascript">
+	function overTime(){
+		$('.overTime').show();
+		$('.foodType').fadeOut();
+		
+	}
+
+	function foodType(){
+		$('.overTime').fadeOut();
+		$('.foodType').show();
+	//	$('.overTime').replaceWith("<div>" + Hello + "</div>");
+		
+	}
+	  
+ </script>
+ </div>

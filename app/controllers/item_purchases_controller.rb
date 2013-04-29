@@ -101,8 +101,21 @@ class ItemPurchasesController < ApplicationController
     respond_to do |format|
       format.json
     end
+    
+  
+    
+    
   end
 
+  def user_spending
+    
+      @pie_graph = Gchart.line(
+                  :theme => :keynote, 
+                  :data => [[0,40,10,70,20],[41,10,80,50,40],[20,60,30,60,80],[5,23,35,10,56],[80,90,5,30,60]], 
+                  :title => 'keynote'
+                  )
+      
+  end
 
 
 
