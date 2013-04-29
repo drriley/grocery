@@ -10,12 +10,14 @@ gem 'pg'
 # using heroku toolbelt instead of gem 'heroku'
 gem 'execjs'
 #gem 'therubyracer'
-
+gem 'mattetti-googlecharts'
+gem "googlecharts", :require => "gchart"
 
 group :development do
   # these are for populating our database with fake data
   gem 'populator'
   gem 'faker'
+  
   # these are to make developing easier
   gem 'hirb' # pretty console!
   gem 'better_errors'

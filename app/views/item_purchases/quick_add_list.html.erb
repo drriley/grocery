@@ -16,4 +16,14 @@
 		<% end %>
 		</tbody>
 	</table>
+	<% if flash[:notice] %>
+	<div class="alert">
+		<h3><%= flash[:notice]%></h3>
+	</div>
+	    <script type="text/javascript">
+	
+		$('.alert').delay(2500).fadeOut(1600);
+		  
+		</script>
+	 <% end %>
 </div>
